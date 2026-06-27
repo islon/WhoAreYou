@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
         int totalCount = permissions.size();
         int grantedCount = 0;
         for (PermissionCollector.PermissionItem item : permissions) {
-            if ("Granted".equals(item.status)) {
+            if (getString(R.string.status_granted).equals(item.status)) {
                 grantedCount++;
             }
         }
@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
         iconContainer.setGravity(Gravity.CENTER);
 
         GradientDrawable iconBg = new GradientDrawable();
-        boolean isGranted = "Granted".equals(item.status);
+        boolean isGranted = getString(R.string.status_granted).equals(item.status);
         if (isGranted) {
             iconBg.setColor(Color.parseColor("#FEE2E2"));
         } else {
@@ -549,7 +549,7 @@ public class MainActivity extends AppCompatActivity {
 
                 int grantedCount = 0;
                 for (PermissionCollector.PermissionItem item : permissions) {
-                    if ("Granted".equals(item.status)) {
+                    if (getString(R.string.status_granted).equals(item.status)) {
                         grantedCount++;
                     }
                 }

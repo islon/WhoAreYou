@@ -24,6 +24,7 @@
     <string name="tip_free_info">The following information can be obtained without any permissions</string>
     <string name="tip_permission_warning">Authorized permissions mean apps can access this data at any time. Please regularly check app permissions and revoke unnecessary authorizations.</string>
     <string name="tip_privacy_notice">This app only displays information that can be technically obtained, and does not upload or transmit any data. All information collection is done locally.</string>
+    <string name="tip_privacy_notice_title">🔒 Privacy Protection Notice</string>
 
     <!-- Risk Levels -->
     <string name="risk_high">High Risk</string>
@@ -88,4 +89,119 @@
     <string name="label_24_hour">24-hour</string>
     <string name="label_12_hour">12-hour</string>
     <string name="label_system_default">System Default</string>
+
+    <!-- Permission Names -->
+    <string name="perm_access_fine_location">Precise Location</string>
+    <string name="perm_access_coarse_location">Approximate Location</string>
+    <string name="perm_access_background_location">Background Location</string>
+    <string name="perm_read_contacts">Read Contacts</string>
+    <string name="perm_write_contacts">Modify Contacts</string>
+    <string name="perm_read_sms">Read SMS</string>
+    <string name="perm_send_sms">Send SMS</string>
+    <string name="perm_receive_sms">Receive SMS</string>
+    <string name="perm_read_call_log">Read Call Log</string>
+    <string name="perm_write_call_log">Modify Call Log</string>
+    <string name="perm_record_audio">Microphone Access</string>
+    <string name="perm_camera">Camera Access</string>
+    <string name="perm_read_external_storage">Read Storage</string>
+    <string name="perm_write_external_storage">Write Storage</string>
+    <string name="perm_access_media_location">Media Location</string>
+    <string name="perm_read_phone_state">Phone State</string>
+    <string name="perm_call_phone">Make Calls</string>
+    <string name="perm_answer_phone_calls">Answer Calls</string>
+    <string name="perm_use_fingerprint">Fingerprint Access</string>
+    <string name="perm_use_biometric">Biometric Access</string>
+    <string name="perm_access_notifications">Notification Access</string>
+    <string name="perm_accessibility_service">Accessibility Service</string>
+    <string name="perm_vpn_service">VPN Service</string>
+    <string name="perm_overlay_window">Overlay Window</string>
+    <string name="perm_app_usage_stats">App Usage Stats</string>
+    <string name="perm_read_calendar">Read Calendar</string>
+    <string name="perm_write_calendar">Modify Calendar</string>
+    <string name="perm_read_browser_history">Read Browser History</string>
+    <string name="perm_install_apps">Install Apps</string>
+    <string name="perm_uninstall_apps">Uninstall Apps</string>
+
+    <!-- Permission Descriptions -->
+    <string name="perm_desc_access_fine_location">Can obtain precise GPS location with meter-level accuracy</string>
+    <string name="perm_desc_access_coarse_location">Can obtain approximate location based on cell towers and WiFi</string>
+    <string name="perm_desc_access_background_location">Can continuously track location in background, even when app is not active</string>
+    <string name="perm_desc_read_contacts">Can read all contacts stored on the device</string>
+    <string name="perm_desc_write_contacts">Can add, modify or delete contact information</string>
+    <string name="perm_desc_read_sms">Can read all SMS messages in inbox</string>
+    <string name="perm_desc_send_sms">Can send SMS, may incur charges or be used for fraud</string>
+    <string name="perm_desc_receive_sms">Can monitor incoming SMS, intercept verification codes</string>
+    <string name="perm_desc_read_call_log">Can view all call records including numbers and times</string>
+    <string name="perm_desc_write_call_log">Can modify or delete call records</string>
+    <string name="perm_desc_record_audio">Can activate microphone anytime to record surrounding sounds</string>
+    <string name="perm_desc_camera">Can activate camera anytime to take photos or videos secretly</string>
+    <string name="perm_desc_read_external_storage">Can read all files on storage card</string>
+    <string name="perm_desc_write_external_storage">Can modify or delete files on storage card</string>
+    <string name="perm_desc_access_media_location">Can read GPS location from photos</string>
+    <string name="perm_desc_read_phone_state">Can obtain IMEI, IMSI, phone number and other device identifiers</string>
+    <string name="perm_desc_call_phone">Can directly dial phone numbers</string>
+    <string name="perm_desc_answer_phone_calls">Can automatically answer incoming calls</string>
+    <string name="perm_desc_use_fingerprint">Can use fingerprint for authentication</string>
+    <string name="perm_desc_use_biometric">Can use fingerprint, face and other biometric features</string>
+    <string name="perm_desc_access_notifications">Can read all system notifications</string>
+    <string name="perm_desc_accessibility_service">Can simulate user operations, may be used to steal information</string>
+    <string name="perm_desc_vpn_service">Can monitor all network traffic</string>
+    <string name="perm_desc_overlay_window">Can display windows above other apps</string>
+    <string name="perm_desc_app_usage_stats">Can track app usage time and patterns</string>
+    <string name="perm_desc_read_calendar">Can read all schedules from calendar</string>
+    <string name="perm_desc_write_calendar">Can add, modify or delete calendar events</string>
+    <string name="perm_desc_read_browser_history">Can read browser bookmarks and history</string>
+    <string name="perm_desc_install_apps">Can directly install other applications</string>
+    <string name="perm_desc_uninstall_apps">Can directly uninstall applications</string>
+
+    <!-- Permission Risk -->
+    <string name="perm_risk_access_fine_location">⚠️ High Risk: Can track your real-time location and movements</string>
+    <string name="perm_risk_access_coarse_location">⚠️ Medium Risk: Can know your approximate location area</string>
+    <string name="perm_risk_access_background_location">⚠️ High Risk: Continuously monitors your location, high battery drain</string>
+    <string name="perm_risk_read_contacts">⚠️ High Risk: Can analyze your social network</string>
+    <string name="perm_risk_write_contacts">⚠️ Medium Risk: Can tamper contact info for fraud</string>
+    <string name="perm_risk_read_sms">⚠️ High Risk: Can obtain bank verification codes and sensitive info</string>
+    <string name="perm_risk_send_sms">⚠️ High Risk: May secretly send premium SMS</string>
+    <string name="perm_risk_receive_sms">⚠️ High Risk: Can intercept all SMS verification codes</string>
+    <string name="perm_risk_read_call_log">⚠️ High Risk: Can learn your social relationships and call habits</string>
+    <string name="perm_risk_write_call_log">⚠️ Medium Risk: Can delete call records to hide activities</string>
+    <string name="perm_risk_record_audio">⚠️ High Risk: Can listen to your conversations and ambient sounds</string>
+    <string name="perm_risk_camera">⚠️ High Risk: Can take photos/videos without your knowledge</string>
+    <string name="perm_risk_read_external_storage">⚠️ High Risk: Can access your photos, documents and all files</string>
+    <string name="perm_risk_write_external_storage">⚠️ Medium Risk: Can modify or delete your files</string>
+    <string name="perm_risk_access_media_location">⚠️ Medium Risk: Obtain location info from your photos</string>
+    <string name="perm_risk_read_phone_state">⚠️ High Risk: Can uniquely identify and track your device</string>
+    <string name="perm_risk_call_phone">⚠️ Low Risk: Can directly dial premium numbers</string>
+    <string name="perm_risk_answer_phone_calls">⚠️ Low Risk: May auto-answer incoming calls</string>
+    <string name="perm_risk_use_fingerprint">⚠️ Medium Risk: Collects fingerprint biometrics</string>
+    <string name="perm_risk_use_biometric">⚠️ Medium Risk: Collects biometric features</string>
+    <string name="perm_risk_access_notifications">⚠️ High Risk: Can read all sensitive info in notifications</string>
+    <string name="perm_risk_accessibility_service">⚠️ High Risk: Extremely high permissions, may monitor all operations</string>
+    <string name="perm_risk_vpn_service">⚠️ High Risk: Can monitor all network traffic</string>
+    <string name="perm_risk_overlay_window">⚠️ High Risk: Can display content over any app</string>
+    <string name="perm_risk_app_usage_stats">⚠️ Medium Risk: Knows your usage habits and app preferences</string>
+    <string name="perm_risk_read_calendar">⚠️ Medium Risk: Knows your schedules and activity plans</string>
+    <string name="perm_risk_write_calendar">⚠️ Low Risk: May modify your schedules</string>
+    <string name="perm_risk_read_browser_history">⚠️ High Risk: Knows your interests and search habits</string>
+    <string name="perm_risk_install_apps">⚠️ High Risk: Can secretly install malware</string>
+    <string name="perm_risk_uninstall_apps">⚠️ Medium Risk: Can uninstall security software</string>
+
+    <!-- Permission Status -->
+    <string name="perm_granted">Granted</string>
+    <string name="perm_denied">Denied</string>
+    <string name="perm_if_granted">If granted:</string>
+
+    <!-- Permission Groups -->
+    <string name="perm_group_location">📍 Location</string>
+    <string name="perm_group_personal">👤 Personal Info</string>
+    <string name="perm_group_device">🔧 Device</string>
+
+    <!-- Permission Activity -->
+    <string name="perm_activity_title">🔐 Permission Details</string>
+    <string name="perm_activity_subtitle">The following information requires app authorization</string>
+    <string name="perm_activity_stat_permissions">Permissions</string>
+    <string name="perm_activity_stat_granted">Granted</string>
+    <string name="perm_activity_stat_denied">Denied</string>
+    <string name="perm_activity_warning_title">⚠️ Privacy Risk Warning</string>
+    <string name="perm_activity_back">Back</string>
 </resources>

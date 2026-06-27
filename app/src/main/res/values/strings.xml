@@ -19,6 +19,7 @@
     <string name="tip_free_info">以下信息无需任何权限即可获取</string>
     <string name="tip_permission_warning">已授权的权限意味着应用可以随时访问这些数据。请定期检查手机各应用的权限，撤销不必要的授权。</string>
     <string name="tip_privacy_notice">本应用仅展示技术层面可获取的信息，不会上传或传输任何数据。所有信息收集都在本地完成。</string>
+    <string name="tip_privacy_notice_title">🔒 隐私保护提示</string>
 
     <string name="risk_high">高风险</string>
     <string name="risk_medium">中风险</string>
@@ -75,4 +76,119 @@
     <string name="label_24_hour">24小时制</string>
     <string name="label_12_hour">12小时制</string>
     <string name="label_system_default">系统默认</string>
+
+    <!-- Permission Names -->
+    <string name="perm_access_fine_location">精确位置</string>
+    <string name="perm_access_coarse_location">模糊位置</string>
+    <string name="perm_access_background_location">后台位置</string>
+    <string name="perm_read_contacts">读取联系人</string>
+    <string name="perm_write_contacts">修改联系人</string>
+    <string name="perm_read_sms">读取短信</string>
+    <string name="perm_send_sms">发送短信</string>
+    <string name="perm_receive_sms">接收短信</string>
+    <string name="perm_read_call_log">读取通话记录</string>
+    <string name="perm_write_call_log">修改通话记录</string>
+    <string name="perm_record_audio">麦克风权限</string>
+    <string name="perm_camera">相机权限</string>
+    <string name="perm_read_external_storage">读取存储</string>
+    <string name="perm_write_external_storage">写入存储</string>
+    <string name="perm_access_media_location">媒体位置</string>
+    <string name="perm_read_phone_state">手机状态</string>
+    <string name="perm_call_phone">拨打电话</string>
+    <string name="perm_answer_phone_calls">接听电话</string>
+    <string name="perm_use_fingerprint">指纹识别</string>
+    <string name="perm_use_biometric">生物识别</string>
+    <string name="perm_access_notifications">通知访问</string>
+    <string name="perm_accessibility_service">无障碍服务</string>
+    <string name="perm_vpn_service">VPN服务</string>
+    <string name="perm_overlay_window">悬浮窗</string>
+    <string name="perm_app_usage_stats">应用使用统计</string>
+    <string name="perm_read_calendar">读取日历</string>
+    <string name="perm_write_calendar">修改日历</string>
+    <string name="perm_read_browser_history">读取浏览器历史</string>
+    <string name="perm_install_apps">安装应用</string>
+    <string name="perm_uninstall_apps">卸载应用</string>
+
+    <!-- Permission Descriptions -->
+    <string name="perm_desc_access_fine_location">可获取设备的精确GPS位置，精度在米级别</string>
+    <string name="perm_desc_access_coarse_location">可获取设备的大致位置，基于基站和WiFi定位</string>
+    <string name="perm_desc_access_background_location">可在后台持续获取位置更新，即使应用不在前台运行</string>
+    <string name="perm_desc_read_contacts">可读取手机中存储的所有联系人信息</string>
+    <string name="perm_desc_write_contacts">可添加、修改或删除联系人信息</string>
+    <string name="perm_desc_read_sms">可读取收件箱中的所有短信内容</string>
+    <string name="perm_desc_send_sms">可发送短信，可能产生费用或用于诈骗</string>
+    <string name="perm_desc_receive_sms">可监听接收到的短信，可截获验证码</string>
+    <string name="perm_desc_read_call_log">可查看所有通话记录，包括号码和时间</string>
+    <string name="perm_desc_write_call_log">可修改或删除通话记录</string>
+    <string name="perm_desc_record_audio">可随时开启麦克风录音，监听周围声音</string>
+    <string name="perm_desc_camera">可随时开启摄像头，偷拍照片或视频</string>
+    <string name="perm_desc_read_external_storage">可读取存储卡上的所有文件</string>
+    <string name="perm_desc_write_external_storage">可修改或删除存储卡上的文件</string>
+    <string name="perm_desc_access_media_location">可读取照片中的GPS位置信息</string>
+    <string name="perm_desc_read_phone_state">可获取IMEI、IMSI、电话号码等设备标识</string>
+    <string name="perm_desc_call_phone">可直接拨打电话号码</string>
+    <string name="perm_desc_answer_phone_calls">可在来电时自动接听电话</string>
+    <string name="perm_desc_use_fingerprint">可使用指纹进行身份验证</string>
+    <string name="perm_desc_use_biometric">可使用指纹、面部等生物特征验证</string>
+    <string name="perm_desc_access_notifications">可读取所有系统通知内容</string>
+    <string name="perm_desc_accessibility_service">可模拟用户操作，可能用于窃取信息</string>
+    <string name="perm_desc_vpn_service">可监控所有网络流量</string>
+    <string name="perm_desc_overlay_window">可显示在其他应用上方的窗口</string>
+    <string name="perm_desc_app_usage_stats">可统计应用使用时长和使用情况</string>
+    <string name="perm_desc_read_calendar">可读取日历中的所有日程安排</string>
+    <string name="perm_desc_write_calendar">可添加、修改或删除日历事件</string>
+    <string name="perm_desc_read_browser_history">可读取浏览器的书签和历史记录</string>
+    <string name="perm_desc_install_apps">可直接安装其他应用</string>
+    <string name="perm_desc_uninstall_apps">可直接卸载手机上的应用</string>
+
+    <!-- Permission Risk -->
+    <string name="perm_risk_access_fine_location">⚠️ 高风险：可追踪你的实时位置和行踪</string>
+    <string name="perm_risk_access_coarse_location">⚠️ 中风险：可知道你大致的位置区域</string>
+    <string name="perm_risk_access_background_location">⚠️ 高风险：持续监控你的位置，电池消耗大</string>
+    <string name="perm_risk_read_contacts">⚠️ 高风险：可分析你的人际关系网络</string>
+    <string name="perm_risk_write_contacts">⚠️ 中风险：可篡改联系人信息进行诈骗</string>
+    <string name="perm_risk_read_sms">⚠️ 高风险：可获取银行验证码等敏感信息</string>
+    <string name="perm_risk_send_sms">⚠️ 高风险：可能偷偷发送付费短信</string>
+    <string name="perm_risk_receive_sms">⚠️ 高风险：可截获所有短信验证码</string>
+    <string name="perm_risk_read_call_log">⚠️ 高风险：可了解你的社交关系和通话习惯</string>
+    <string name="perm_risk_write_call_log">⚠️ 中风险：可删除通话记录掩盖行为</string>
+    <string name="perm_risk_record_audio">⚠️ 高风险：可监听你的对话和环境声音</string>
+    <string name="perm_risk_camera">⚠️ 高风险：可在不知情的情况下拍照录像</string>
+    <string name="perm_risk_read_external_storage">⚠️ 高风险：可获取你的照片、文档等所有文件</string>
+    <string name="perm_risk_write_external_storage">⚠️ 中风险：可修改或删除你的文件</string>
+    <string name="perm_risk_access_media_location">⚠️ 中风险：从照片中获取你的位置信息</string>
+    <string name="perm_risk_read_phone_state">⚠️ 高风险：可唯一标识你的设备进行追踪</string>
+    <string name="perm_risk_call_phone">⚠️ 低风险：可直接拨打付费电话</string>
+    <string name="perm_risk_answer_phone_calls">⚠️ 低风险：可能自动接听来电</string>
+    <string name="perm_risk_use_fingerprint">⚠️ 中风险：收集指纹生物特征</string>
+    <string name="perm_risk_use_biometric">⚠️ 中风险：收集生物识别特征</string>
+    <string name="perm_risk_access_notifications">⚠️ 高风险：可读取通知中的所有敏感信息</string>
+    <string name="perm_risk_accessibility_service">⚠️ 高风险：极高权限，可能监控所有操作</string>
+    <string name="perm_risk_vpn_service">⚠️ 高风险：可监控所有网络流量</string>
+    <string name="perm_risk_overlay_window">⚠️ 高风险：可在任何界面显示内容</string>
+    <string name="perm_risk_app_usage_stats">⚠️ 中风险：了解你的使用习惯和应用偏好</string>
+    <string name="perm_risk_read_calendar">⚠️ 中风险：了解你的日程安排和活动计划</string>
+    <string name="perm_risk_write_calendar">⚠️ 低风险：可能修改你的日程</string>
+    <string name="perm_risk_read_browser_history">⚠️ 高风险：了解你的兴趣和搜索习惯</string>
+    <string name="perm_risk_install_apps">⚠️ 高风险：可偷偷安装恶意软件</string>
+    <string name="perm_risk_uninstall_apps">⚠️ 中风险：可卸载安全软件</string>
+
+    <!-- Permission Status -->
+    <string name="perm_granted">已授权</string>
+    <string name="perm_denied">未授权</string>
+    <string name="perm_if_granted">假如获取后：</string>
+
+    <!-- Permission Groups -->
+    <string name="perm_group_location">📍 位置权限</string>
+    <string name="perm_group_personal">👤 个人信息</string>
+    <string name="perm_group_device">🔧 设备权限</string>
+
+    <!-- Permission Activity -->
+    <string name="perm_activity_title">🔐 权限访问详情</string>
+    <string name="perm_activity_subtitle">以下信息需要应用授权才能访问</string>
+    <string name="perm_activity_stat_permissions">权限</string>
+    <string name="perm_activity_stat_granted">已授权</string>
+    <string name="perm_activity_stat_denied">未授权</string>
+    <string name="perm_activity_warning_title">⚠️ 隐私风险提示</string>
+    <string name="perm_activity_back">返回</string>
 </resources>

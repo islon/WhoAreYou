@@ -34,7 +34,7 @@ public class PermissionActivity extends AppCompatActivity {
         int totalCount = permissions.size();
         int grantedCount = 0;
         for (PermissionCollector.PermissionItem item : permissions) {
-            if ("Granted".equals(item.status)) {
+            if (getString(R.string.perm_granted).equals(item.status)) {
                 grantedCount++;
             }
         }
@@ -52,14 +52,14 @@ public class PermissionActivity extends AppCompatActivity {
         header.setPadding(dpToPx(24), dpToPx(24), dpToPx(24), dpToPx(32));
 
         TextView title = new TextView(this);
-        title.setText("🔐 Permission Access");
+        title.setText(R.string.perm_activity_title);
         title.setTextSize(28);
         title.setTypeface(null, android.graphics.Typeface.BOLD);
         title.setTextColor(Color.WHITE);
         title.setGravity(Gravity.CENTER);
 
         TextView subtitle = new TextView(this);
-        subtitle.setText("The following information requires app authorization to access");
+        subtitle.setText(R.string.perm_activity_subtitle);
         subtitle.setTextSize(14);
         subtitle.setTextColor(Color.parseColor("#E0E0E0"));
         subtitle.setGravity(Gravity.CENTER);
@@ -76,7 +76,7 @@ public class PermissionActivity extends AppCompatActivity {
         statsLayout.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
         statsLayout.setBackgroundColor(Color.WHITE);
 
-        LinearLayout totalLayout = createStatItem(String.valueOf(total), "Permissions", Color.parseColor("#6366F1"));
+        LinearLayout totalLayout = createStatItem(String.valueOf(total), getString(R.string.perm_activity_stat_permissions), Color.parseColor("#6366F1"));
         LinearLayout.LayoutParams totalParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
         totalLayout.setLayoutParams(totalParams);
 
@@ -85,7 +85,7 @@ public class PermissionActivity extends AppCompatActivity {
         LinearLayout.LayoutParams dividerParams = new LinearLayout.LayoutParams(1, dpToPx(40));
         divider1.setLayoutParams(dividerParams);
 
-        LinearLayout grantedLayout = createStatItem(String.valueOf(granted), "Granted", granted > 0 ? Color.parseColor("#EF4444") : Color.parseColor("#10B981"));
+        LinearLayout grantedLayout = createStatItem(String.valueOf(granted), getString(R.string.perm_activity_stat_granted), granted > 0 ? Color.parseColor("#EF4444") : Color.parseColor("#10B981"));
         LinearLayout.LayoutParams grantedParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
         grantedLayout.setLayoutParams(grantedParams);
 
@@ -93,7 +93,7 @@ public class PermissionActivity extends AppCompatActivity {
         divider2.setBackgroundColor(Color.parseColor("#E5E7EB"));
         divider2.setLayoutParams(dividerParams);
 
-        LinearLayout deniedLayout = createStatItem(String.valueOf(total - granted), "Denied", Color.parseColor("#F59E0B"));
+        LinearLayout deniedLayout = createStatItem(String.valueOf(total - granted), getString(R.string.perm_activity_stat_denied), Color.parseColor("#F59E0B"));
         LinearLayout.LayoutParams deniedParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
         deniedLayout.setLayoutParams(deniedParams);
 
@@ -147,13 +147,13 @@ public class PermissionActivity extends AppCompatActivity {
         warningCard.setBackground(warningBg);
 
         TextView warningTitle = new TextView(this);
-        warningTitle.setText("⚠️ Privacy Risk Warning");
+        warningTitle.setText(R.string.perm_activity_warning_title);
         warningTitle.setTextSize(14);
         warningTitle.setTypeface(null, android.graphics.Typeface.BOLD);
         warningTitle.setTextColor(Color.parseColor("#92400E"));
 
         TextView warningText = new TextView(this);
-        warningText.setText("Authorized permissions mean apps can access this data at any time. Please regularly check app permissions and revoke unnecessary authorizations.");
+        warningText.setText(R.string.tip_permission_warning);
         warningText.setTextSize(13);
         warningText.setTextColor(Color.parseColor("#78350F"));
         warningText.setLineSpacing(dpToPx(4), 1.3f);
@@ -168,19 +168,19 @@ public class PermissionActivity extends AppCompatActivity {
 
     private void addPermissionList(List<PermissionCollector.PermissionItem> permissions) {
         Map<String, String> groups = new HashMap<>();
-        groups.put("📍 Location", "location");
-        groups.put("👤 Personal Info", "personal");
-        groups.put("🔧 Device", "device");
+        groups.put(getString(R.string.perm_group_location), "location");
+        groups.put(getString(R.string.perm_group_personal), "personal");
+        groups.put(getString(R.string.perm_group_device), "device");
 
-        addGroup("📍 Location", getPermissionByGroup(permissions, new String[]{
+        addGroup(getString(R.string.perm_group_location), getPermissionByGroup(permissions, new String[]{
             "ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"
         }));
 
-        addGroup("👤 Personal Info", getPermissionByGroup(permissions, new String[]{
+        addGroup(getString(R.string.perm_group_personal), getPermissionByGroup(permissions, new String[]{
             "READ_CONTACTS", "READ_SMS", "READ_CALENDAR", "READ_CALL_LOG"
         }));
 
-        addGroup("🔧 Device", getPermissionByGroup(permissions, new String[]{
+        addGroup(getString(R.string.perm_group_device), getPermissionByGroup(permissions, new String[]{
             "CAMERA", "RECORD_AUDIO", "READ_PHONE_STATE", "READ_EXTERNAL_STORAGE"
         }));
     }
@@ -251,8 +251,8 @@ public class PermissionActivity extends AppCompatActivity {
         nameView.setLayoutParams(nameParams);
 
         TextView statusTag = new TextView(this);
-        boolean isGranted = "Granted".equals(item.status);
-        statusTag.setText(isGranted ? "Granted" : "Denied");
+        boolean isGranted = getString(R.string.perm_granted).equals(item.status);
+        statusTag.setText(isGranted ? getString(R.string.perm_granted) : getString(R.string.perm_denied));
         statusTag.setTextSize(11);
         statusTag.setPadding(dpToPx(8), dpToPx(3), dpToPx(8), dpToPx(3));
         statusTag.setGravity(Gravity.CENTER);
@@ -260,7 +260,7 @@ public class PermissionActivity extends AppCompatActivity {
         GradientDrawable tagBg = new GradientDrawable();
         tagBg.setCornerRadius(dpToPx(12));
 
-        if ("Granted".equals(item.status)) {
+        if (isGranted) {
             tagBg.setColor(Color.parseColor("#FEE2E2"));
             statusTag.setTextColor(Color.parseColor("#DC2626"));
         } else {
@@ -315,7 +315,7 @@ public class PermissionActivity extends AppCompatActivity {
 
     private void addBackButton() {
         Button backButton = new Button(this);
-        backButton.setText("Back");
+        backButton.setText(R.string.perm_activity_back);
         backButton.setTextColor(Color.WHITE);
         backButton.setTextSize(16);
 

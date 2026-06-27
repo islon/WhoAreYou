@@ -67,9 +67,9 @@ Each permission includes:
 
 ### English Version
 
-| Main/No Permission | Need Permission | About |
-|:-----------------:|:---------------:|:-----:|
-| ![Main](https://github.com/islon/WhoAreYou/raw/main/screenshots/01_main.png) | ![Permission](https://github.com/islon/WhoAreYou/raw/main/screenshots/02.png) | ![About](https://github.com/islon/WhoAreYou/raw/main/screenshots/03.png) |
+| Main Screen | Permission Page 1 | Permission Page 2 |
+|:-----------:|:-----------------:|:-----------------:|
+| ![Main](https://github.com/islon/WhoAreYou/raw/main/screenshots/en_main.png) | ![Permission1](https://github.com/islon/WhoAreYou/raw/main/screenshots/en_permission1.png) | ![Permission2](https://github.com/islon/WhoAreYou/raw/main/screenshots/en_permission2.png) |
 
 ### 功能说明 (Features)
 
