@@ -61,7 +61,16 @@ Each permission includes:
 
 | Main Interface | Permission View | About Page |
 |:--------------:|:---------------:|:----------:|
-| ![Main](screenshots/main.png) | ![Permission](screenshots/permission.png) | ![About](screenshots/about.png) |
+| ![Main Interface](screenshots/main.png) | ![Permission View](screenshots/permission.png) | ![About Page](screenshots/about.png) |
+
+### Main Interface
+Displays 55+ items of device information that can be obtained without any permissions, categorized by type with risk level indicators.
+
+### Permission View
+Shows 24 permission types with detailed descriptions and risk analysis, helping users understand what data each permission can access and the potential privacy risks.
+
+### About Page
+Provides educational information about privacy protection, technical details, and usage tips.
 
 ## 🚀 Installation
 
@@ -75,7 +84,7 @@ Each permission includes:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/WhoAreYou.git
+   git clone https://github.com/islon/WhoAreYou.git
    cd WhoAreYou
    ```
 
@@ -91,7 +100,7 @@ Each permission includes:
 
 ### Direct APK Installation
 
-1. Download the latest APK from [Releases](https://github.com/yourusername/WhoAreYou/releases)
+1. Download the latest APK from [Releases](https://github.com/islon/WhoAreYou/releases)
 2. Transfer APK to your Android device
 3. Open the APK file and follow installation prompts
 
@@ -204,8 +213,8 @@ limitations under the License.
 
 ## 📞 Contact & Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/WhoAreYou/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/WhoAreYou/discussions)
+- **Issues**: [GitHub Issues](https://github.com/islon/WhoAreYou/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/islon/WhoAreYou/discussions)
 
 ---
 
