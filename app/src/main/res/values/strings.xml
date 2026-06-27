@@ -1,39 +1,33 @@
 <resources>
-    <!-- 应用名称 -->
     <string name="app_name">你是谁</string>
 
-    <!-- 主界面 -->
     <string name="main_title">你是谁</string>
     <string name="main_subtitle">隐私信息透明化展示</string>
     <string name="btn_export">导出报告</string>
     <string name="btn_about">关于应用</string>
+    <string name="btn_back">返回</string>
+    <string name="app_version">版本 v1.1</string>
 
-    <!-- Tab标签 -->
     <string name="tab_free">🔓 无需权限</string>
     <string name="tab_permission">🔐 需要权限</string>
 
-    <!-- 统计信息 -->
     <string name="stat_info_items">信息项</string>
     <string name="stat_sensitive_items">敏感项</string>
     <string name="stat_categories">类别</string>
     <string name="stat_permissions">权限</string>
 
-    <!-- 提示信息 -->
     <string name="tip_free_info">以下信息无需任何权限即可获取</string>
     <string name="tip_permission_warning">已授权的权限意味着应用可以随时访问这些数据。请定期检查手机各应用的权限，撤销不必要的授权。</string>
     <string name="tip_privacy_notice">本应用仅展示技术层面可获取的信息，不会上传或传输任何数据。所有信息收集都在本地完成。</string>
 
-    <!-- 风险等级 -->
     <string name="risk_high">高风险</string>
     <string name="risk_medium">中风险</string>
     <string name="risk_low">低风险</string>
 
-    <!-- 权限状态 -->
     <string name="status_granted">已授权</string>
     <string name="status_denied">未授权</string>
     <string name="status_unavailable">厂商特定</string>
 
-    <!-- 导出功能 -->
     <string name="export_title">📤 导出报告</string>
     <string name="export_message">导出的报告将包含以下内容：\n\n📱 无需权限的数据（55项）\n  - 设备硬件信息（品牌、型号、CPU、内存等）\n  - 系统信息（Android版本、SDK版本等）\n  - 网络信息（IP地址、WiFi信息等）\n  - 传感器信息、安全状态等\n\n🔐 需要权限的数据（24项）\n  - 位置权限、通讯录、短信等\n  - 权限授权状态及风险说明\n\n报告将保存在：\n内部存储/Documents/WhoAreYou/\n\n确定导出吗？</string>
     <string name="export_confirm">确定导出</string>
@@ -41,7 +35,6 @@
     <string name="export_success">✅ 报告已成功导出到：</string>
     <string name="export_failed">❌ 导出失败：</string>
 
-    <!-- 分类名称 -->
     <string name="category_device">设备硬件</string>
     <string name="category_system">系统信息</string>
     <string name="category_network">网络信息</string>
@@ -51,17 +44,35 @@
     <string name="category_sensor">传感器</string>
     <string name="category_security">安全状态</string>
 
-    <!-- 关于应用 -->
     <string name="about_title">关于应用</string>
     <string name="about_features">✨ 功能特点</string>
     <string name="about_privacy">🔒 隐私保护</string>
     <string name="about_tech">🛠️ 技术说明</string>
     <string name="about_suggestions">💡 保护建议</string>
+    <string name="about_intro">📋 应用介绍</string>
 
-    <!-- 权限警告 -->
     <string name="permission_warning_title">⚠️ %d 项权限已授权</string>
 
-    <!-- 其他 -->
     <string name="loading">加载中...</string>
     <string name="error">错误</string>
+
+    <string name="label_charging">充电中</string>
+    <string name="label_full">充满</string>
+    <string name="label_discharging">放电中</string>
+    <string name="label_ac">交流电</string>
+    <string name="label_usb">USB</string>
+    <string name="label_wireless">无线</string>
+    <string name="label_not_connected">未连接</string>
+    <string name="label_portrait">竖屏</string>
+    <string name="label_landscape">横屏</string>
+    <string name="label_normal">正常</string>
+    <string name="label_silent">静音</string>
+    <string name="label_vibrate">震动</string>
+    <string name="label_auto">自动</string>
+    <string name="label_manual">手动</string>
+    <string name="label_on">开启</string>
+    <string name="label_off">关闭</string>
+    <string name="label_24_hour">24小时制</string>
+    <string name="label_12_hour">12小时制</string>
+    <string name="label_system_default">系统默认</string>
 </resources>

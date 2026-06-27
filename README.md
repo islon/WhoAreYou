@@ -59,18 +59,34 @@ Each permission includes:
 
 ## 📸 Screenshots
 
+### 中文版 (Chinese)
+
 | 首页/无需权限 | 需要权限 | 关于应用 |
 |:------------:|:--------:|:--------:|
-| ![首页/无需权限](https://github.com/islon/WhoAreYou/raw/main/screenshots/main.png) | ![需要权限](https://github.com/islon/WhoAreYou/raw/main/screenshots/permission.png) | ![关于应用](https://github.com/islon/WhoAreYou/raw/main/screenshots/about.png) |
+| ![首页](https://github.com/islon/WhoAreYou/raw/main/screenshots/main.png) | ![需要权限](https://github.com/islon/WhoAreYou/raw/main/screenshots/permission.png) | ![关于应用](https://github.com/islon/WhoAreYou/raw/main/screenshots/about.png) |
 
-### 首页/无需权限
+### English Version
+
+| Main/No Permission | Need Permission | About |
+|:-----------------:|:---------------:|:-----:|
+| ![Main](https://github.com/islon/WhoAreYou/raw/main/screenshots/01_main.png) | ![Permission](https://github.com/islon/WhoAreYou/raw/main/screenshots/02.png) | ![About](https://github.com/islon/WhoAreYou/raw/main/screenshots/03.png) |
+
+### 功能说明 (Features)
+
+#### 🔓 无需权限 / No Permission Required
 展示55+项无需任何权限即可获取的设备信息，按类别分类并显示风险等级。
 
-### 需要权限
-展示24项权限类型及其详细描述和风险分析，帮助用户了解每项权限能访问的数据及潜在隐私风险。
+Displays 55+ items of device information that can be obtained without any permissions.
 
-### 关于应用
+#### 🔐 需要权限 / Need Permission
+展示24项权限类型及其详细描述和风险分析。
+
+Displays 24 permission types with detailed descriptions and risk analysis.
+
+#### 📋 关于应用 / About App
 提供隐私保护教育信息、技术说明和使用建议。
+
+Provides privacy protection education, technical details, and protection tips.
 
 ## 🚀 Installation
 

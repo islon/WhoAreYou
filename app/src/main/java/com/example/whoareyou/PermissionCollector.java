@@ -1,25 +1,10 @@
 package com.example.whoareyou;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.os.Environment;
-import android.location.Location;
-import android.location.LocationManager;
-import android.os.Build;
-import android.provider.ContactsContract;
-import android.provider.Telephony;
-import android.telephony.TelephonyManager;
 
-import androidx.core.app.ActivityCompat;
-
-import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class PermissionCollector {
 
@@ -29,582 +14,443 @@ public class PermissionCollector {
         this.context = context;
     }
 
-    // 获取所有权限相关信息
-    public List<PermissionItem> collectAllPermissions() {
-        List<PermissionItem> items = new ArrayList<>();
+    public List<PermissionItem> getAllPermissions() {
+        List<PermissionItem> permissions = new ArrayList<>();
 
-        items.addAll(checkLocationPermission());
-        items.addAll(checkContactsPermission());
-        items.addAll(checkSmsPermission());
-        items.addAll(checkPhonePermission());
-        items.addAll(checkCalendarPermission());
-        items.addAll(checkCameraPermission());
-        items.addAll(checkMicrophonePermission());
-        items.addAll(checkStoragePermission());
-        items.addAll(checkCallLogPermission());
-        items.addAll(checkMediaPermission());
-        items.addAll(checkNotificationPermission());
-        items.addAll(checkSensorPermission());
-        items.addAll(checkBluetoothPermission());
-        items.addAll(checkBackgroundLocationPermission());
-        items.addAll(checkSpecialPermissions());
-
-        return items;
-    }
-
-    // 位置权限
-    private List<PermissionItem> checkLocationPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasGps = ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED;
-
-        items.add(new PermissionItem(
-            "📍 GPS精确位置",
-            hasGps ? "已授权" : "未授权",
-            "可获取精确到米级的实时位置信息，支持卫星定位",
-            "【风险】可实时追踪用户位置，记录行动轨迹，推断家庭住址、工作地点、常去场所，实现精准营销或监控",
+        permissions.add(new PermissionItem(
             "ACCESS_FINE_LOCATION",
-            hasGps ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
+            "Precise Location",
+            "Allows the app to access precise location information (GPS, WiFi, cell towers). If granted, the app can track your exact location at any time.",
+            "Risk: Location tracking, targeted advertising, stalking. Attackers can use location data to track your movements, know where you live/work, and predict your habits.",
+            android.Manifest.permission.ACCESS_FINE_LOCATION
         ));
 
-        boolean hasNetwork = ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED;
-
-        items.add(new PermissionItem(
-            "🌐 网络位置",
-            hasNetwork ? "已授权" : "未授权",
-            "通过基站信号和WiFi热点推断大致位置，精度约100-1000米",
-            "【风险】可推断用户所在城市、商圈，分析出行模式，用于广告投放和用户画像",
+        permissions.add(new PermissionItem(
             "ACCESS_COARSE_LOCATION",
-            hasNetwork ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
+            "Approximate Location",
+            "Allows the app to access approximate location information (WiFi, cell towers). Less precise than fine location but can still determine your approximate location.",
+            "Risk: Regional targeting, approximate tracking. Can determine which city you are in, which may be combined with other data for more precise positioning.",
+            android.Manifest.permission.ACCESS_COARSE_LOCATION
         ));
 
-        return items;
-    }
-
-    // 通讯录权限
-    private List<PermissionItem> checkContactsPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasContacts = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED;
-
-        int contactCount = 0;
-        if (hasContacts) {
-            try {
-                android.database.Cursor cursor = context.getContentResolver().query(
-                    ContactsContract.Contacts.CONTENT_URI,
-                    null, null, null, null
-                );
-                if (cursor != null) {
-                    contactCount = cursor.getCount();
-                    cursor.close();
-                }
-            } catch (Exception e) {
-                contactCount = 0;
-            }
-        }
-
-        items.add(new PermissionItem(
-            "👥 通讯录",
-            hasContacts ? "已授权 (" + contactCount + "个联系人)" : "未授权",
-            "可读取所有联系人信息，包括姓名、手机号、邮箱、公司、地址等完整资料",
-            "【风险】获取用户完整社交网络，分析人际关系，用于精准营销、社交图谱构建、甚至诈骗攻击",
-            "READ_CONTACTS",
-            hasContacts ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 短信权限
-    private List<PermissionItem> checkSmsPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasSms = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_SMS)
-                == PackageManager.PERMISSION_GRANTED;
-
-        int smsCount = 0;
-        if (hasSms) {
-            try {
-                android.database.Cursor cursor = context.getContentResolver().query(
-                    Telephony.Sms.CONTENT_URI,
-                    new String[]{Telephony.Sms._ID},
-                    null, null, null
-                );
-                if (cursor != null) {
-                    smsCount = cursor.getCount();
-                    cursor.close();
-                }
-            } catch (Exception e) {
-                smsCount = 0;
-            }
-        }
-
-        items.add(new PermissionItem(
-            "💬 短信",
-            hasSms ? "已授权 (" + smsCount + "条)" : "未授权",
-            "可读取所有短信内容，包括验证码、私人对话、银行通知、验证码等敏感信息",
-            "【风险】可获取短信验证码进行账户劫持，读取私人对话泄露隐私，分析消费习惯和财务状况",
-            "READ_SMS",
-            hasSms ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 电话权限
-    private List<PermissionItem> checkPhonePermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasPhone = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE)
-                == PackageManager.PERMISSION_GRANTED;
-
-        String imei = "需要权限";
-        if (hasPhone) {
-            try {
-                TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-                if (tm != null) {
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-                        imei = tm.getDeviceId();
-                    } else {
-                        imei = tm.getImei();
-                    }
-                }
-            } catch (Exception e) {
-                imei = "无法获取";
-            }
-        }
-
-        items.add(new PermissionItem(
-            "📱 设备识别码(IMEI)",
-            hasPhone ? imei : "未授权",
-            "设备国际移动设备识别码，全球唯一，可识别手机硬件",
-            "【风险】用于跨应用追踪用户，构建设备指纹，实现精准广告投放和用户画像",
-            "READ_PHONE_STATE",
-            hasPhone ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 日历权限
-    private List<PermissionItem> checkCalendarPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasCalendar = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR)
-                == PackageManager.PERMISSION_GRANTED;
-
-        int eventCount = 0;
-        if (hasCalendar) {
-            try {
-                android.database.Cursor cursor = context.getContentResolver().query(
-                    android.provider.CalendarContract.Events.CONTENT_URI,
-                    new String[]{android.provider.CalendarContract.Events._ID},
-                    null, null, null
-                );
-                if (cursor != null) {
-                    eventCount = cursor.getCount();
-                    cursor.close();
-                }
-            } catch (Exception e) {
-                eventCount = 0;
-            }
-        }
-
-        items.add(new PermissionItem(
-            "📅 日历事件",
-            hasCalendar ? "已授权 (" + eventCount + "个事件)" : "未授权",
-            "可读取所有日历事件，包括会议安排、生日、旅行计划、纪念日等",
-            "【风险】推断用户工作安排、社交活动、旅行计划，用于精准营销和行为分析",
-            "READ_CALENDAR",
-            hasCalendar ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 摄像头权限
-    private List<PermissionItem> checkCameraPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasCamera = ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
-                == PackageManager.PERMISSION_GRANTED;
-
-        items.add(new PermissionItem(
-            "📷 摄像头",
-            hasCamera ? "已授权" : "未授权",
-            "可调用前后置摄像头进行拍照、录像，获取实时画面",
-            "【风险】可在后台偷拍用户，监控用户环境，窃取隐私画面，进行人脸识别",
-            "CAMERA",
-            hasCamera ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 麦克风权限
-    private List<PermissionItem> checkMicrophonePermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasRecord = ActivityCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO)
-                == PackageManager.PERMISSION_GRANTED;
-
-        items.add(new PermissionItem(
-            "🎤 麦克风",
-            hasRecord ? "已授权" : "未授权",
-            "可录制音频、监听环境声音，获取语音输入",
-            "【风险】可在后台监听用户对话，窃取语音信息，分析说话内容进行语音识别",
-            "RECORD_AUDIO",
-            hasRecord ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 存储权限
-    private List<PermissionItem> checkStoragePermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasStorage;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            hasStorage = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_MEDIA_IMAGES)
-                    == PackageManager.PERMISSION_GRANTED;
-        } else {
-            hasStorage = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED;
-        }
-
-        int fileCount = 0;
-        if (hasStorage) {
-            try {
-                File storage = Environment.getExternalStorageDirectory();
-                if (storage != null && storage.exists()) {
-                    File[] files = storage.listFiles();
-                    if (files != null) {
-                        fileCount = files.length;
-                    }
-                }
-            } catch (Exception e) {
-                fileCount = 0;
-            }
-        }
-
-        items.add(new PermissionItem(
-            "💾 存储文件",
-            hasStorage ? "已授权 (" + fileCount + "个文件)" : "未授权",
-            "可读取手机存储中的所有文件，包括照片、视频、文档、下载文件等",
-            "【风险】可获取私人照片、视频、文档资料、聊天记录备份、浏览器历史等敏感数据",
-            "READ_EXTERNAL_STORAGE",
-            hasStorage ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 通话记录权限
-    private List<PermissionItem> checkCallLogPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasCallLog = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_CALL_LOG)
-                == PackageManager.PERMISSION_GRANTED;
-
-        int callCount = 0;
-        if (hasCallLog) {
-            try {
-                android.database.Cursor cursor = context.getContentResolver().query(
-                    android.provider.CallLog.CONTENT_URI,
-                    new String[]{android.provider.CallLog.Calls._ID},
-                    null, null, null
-                );
-                if (cursor != null) {
-                    callCount = cursor.getCount();
-                    cursor.close();
-                }
-            } catch (Exception e) {
-                callCount = 0;
-            }
-        }
-
-        items.add(new PermissionItem(
-            "📞 通话记录",
-            hasCallLog ? "已授权 (" + callCount + "条)" : "未授权",
-            "可读取所有通话记录，包括来电号码、去电号码、通话时间、通话时长、联系人姓名",
-            "【风险】分析用户社交关系网络，识别亲密联系人，推断工作习惯和作息规律",
-            "READ_CALL_LOG",
-            hasCallLog ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 媒体权限（Android 13+）
-    private List<PermissionItem> checkMediaPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            boolean hasImages = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_MEDIA_IMAGES)
-                    == PackageManager.PERMISSION_GRANTED;
-            items.add(new PermissionItem(
-                "🖼️ 媒体图片",
-                hasImages ? "已授权" : "未授权",
-                "可读取手机中的照片和图片文件",
-                "【风险】获取私人照片、截图、相册内容，分析用户生活场景和兴趣爱好",
-                "READ_MEDIA_IMAGES",
-                hasImages ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-            ));
-
-            boolean hasVideo = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_MEDIA_VIDEO)
-                    == PackageManager.PERMISSION_GRANTED;
-            items.add(new PermissionItem(
-                "🎬 媒体视频",
-                hasVideo ? "已授权" : "未授权",
-                "可读取手机中的视频文件",
-                "【风险】获取私人视频、屏幕录制内容，侵犯用户隐私和生活场景",
-                "READ_MEDIA_VIDEO",
-                hasVideo ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-            ));
-
-            boolean hasAudio = ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_MEDIA_AUDIO)
-                    == PackageManager.PERMISSION_GRANTED;
-            items.add(new PermissionItem(
-                "🎵 媒体音频",
-                hasAudio ? "已授权" : "未授权",
-                "可读取手机中的音频和音乐文件",
-                "【风险】获取用户音乐偏好、语音备忘录、录音文件等个人信息",
-                "READ_MEDIA_AUDIO",
-                hasAudio ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-            ));
-        }
-
-        return items;
-    }
-
-    // 通知权限
-    private List<PermissionItem> checkNotificationPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasNotification = false;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            hasNotification = ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS)
-                    == PackageManager.PERMISSION_GRANTED;
-        } else {
-            try {
-                android.app.NotificationManager nm = (android.app.NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                if (nm != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    hasNotification = nm.areNotificationsEnabled();
-                }
-            } catch (Exception e) {
-                hasNotification = false;
-            }
-        }
-
-        items.add(new PermissionItem(
-            "🔔 通知权限",
-            hasNotification ? "已授权" : "未授权",
-            "可发送应用通知、推送消息到通知栏",
-            "【风险】发送垃圾通知、广告推送，打扰用户，甚至伪造系统通知进行诈骗",
-            "POST_NOTIFICATIONS",
-            hasNotification ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 传感器权限
-    private List<PermissionItem> checkSensorPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasSensors = ActivityCompat.checkSelfPermission(context, Manifest.permission.BODY_SENSORS)
-                == PackageManager.PERMISSION_GRANTED;
-
-        items.add(new PermissionItem(
-            "🔬 身体传感器",
-            hasSensors ? "已授权" : "未授权",
-            "可访问心率传感器、步数传感器、睡眠监测等健康数据",
-            "【风险】获取用户健康数据、运动习惯、睡眠模式，推断用户身体状况和生活规律",
-            "BODY_SENSORS",
-            hasSensors ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        return items;
-    }
-
-    // 蓝牙权限
-    private List<PermissionItem> checkBluetoothPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasBluetooth = false;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            hasBluetooth = ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT)
-                    == PackageManager.PERMISSION_GRANTED;
-        } else {
-            hasBluetooth = ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH)
-                    == PackageManager.PERMISSION_GRANTED;
-        }
-
-        items.add(new PermissionItem(
-            "🔵 蓝牙连接",
-            hasBluetooth ? "已授权" : "未授权",
-            "可连接蓝牙设备、扫描附近蓝牙设备、读取蓝牙设备信息",
-            "【风险】追踪用户附近蓝牙设备，分析用户设备使用习惯，甚至通过蓝牙传输恶意数据",
-            "BLUETOOTH_CONNECT",
-            hasBluetooth ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-        ));
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            boolean hasScan = ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_SCAN)
-                    == PackageManager.PERMISSION_GRANTED;
-            items.add(new PermissionItem(
-                "🔍 蓝牙扫描",
-                hasScan ? "已授权" : "未授权",
-                "可扫描附近蓝牙设备，发现周边蓝牙设备信息",
-                "【风险】扫描周边设备构建用户环境画像，追踪用户位置和活动范围",
-                "BLUETOOTH_SCAN",
-                hasScan ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-            ));
-        }
-
-        return items;
-    }
-
-    // 后台位置权限
-    private List<PermissionItem> checkBackgroundLocationPermission() {
-        List<PermissionItem> items = new ArrayList<>();
-
-        boolean hasBackgroundLocation = false;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            hasBackgroundLocation = ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                    == PackageManager.PERMISSION_GRANTED;
-        }
-
-        items.add(new PermissionItem(
-            "🌙 后台位置",
-            hasBackgroundLocation ? "已授权" : "未授权",
-            "即使应用不在前台运行，也能持续获取用户位置信息",
-            "【风险】24小时持续追踪用户位置，记录完整行动轨迹，严重侵犯隐私",
+        permissions.add(new PermissionItem(
             "ACCESS_BACKGROUND_LOCATION",
-            hasBackgroundLocation ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
+            "Background Location",
+            "Allows the app to access location information even when the app is running in the background. This is more dangerous than foreground location access.",
+            "Risk: Continuous tracking, privacy invasion. The app can track your location 24/7 without your knowledge, recording all your movements.",
+            android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
         ));
 
-        return items;
-    }
+        permissions.add(new PermissionItem(
+            "READ_CONTACTS",
+            "Read Contacts",
+            "Allows the app to read all contact information on your device, including phone numbers, email addresses, and names.",
+            "Risk: Contact list theft, social engineering. Attackers can steal your entire contact list for spam, phishing, or selling to third parties.",
+            android.Manifest.permission.READ_CONTACTS
+        ));
 
-    // 特殊权限
-    private List<PermissionItem> checkSpecialPermissions() {
-        List<PermissionItem> items = new ArrayList<>();
+        permissions.add(new PermissionItem(
+            "WRITE_CONTACTS",
+            "Modify Contacts",
+            "Allows the app to add, delete, or modify contact information on your device.",
+            "Risk: Contact tampering, malware injection. Rogue apps can modify your contacts to redirect calls/messages to malicious numbers.",
+            android.Manifest.permission.WRITE_CONTACTS
+        ));
 
-        // 悬浮窗权限
-        boolean hasOverlay = false;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            hasOverlay = android.provider.Settings.canDrawOverlays(context);
-        }
-        items.add(new PermissionItem(
-            "💬 悬浮窗",
-            hasOverlay ? "已授权" : "未授权",
-            "可在其他应用上层显示悬浮窗口，覆盖屏幕内容",
-            "【风险】强制弹窗广告、监控用户操作、拦截系统功能，影响手机正常使用",
+        permissions.add(new PermissionItem(
+            "READ_SMS",
+            "Read SMS",
+            "Allows the app to read all SMS messages on your device, including verification codes, personal conversations, and financial information.",
+            "Risk: Verification code theft, privacy breach. Attackers can intercept SMS verification codes for account takeover attacks.",
+            android.Manifest.permission.READ_SMS
+        ));
+
+        permissions.add(new PermissionItem(
+            "SEND_SMS",
+            "Send SMS",
+            "Allows the app to send SMS messages from your device without your knowledge.",
+            "Risk: Spam sending, fee fraud. Rogue apps can send premium SMS messages to rack up charges on your phone bill.",
+            android.Manifest.permission.SEND_SMS
+        ));
+
+        permissions.add(new PermissionItem(
+            "RECEIVE_SMS",
+            "Receive SMS",
+            "Allows the app to intercept incoming SMS messages.",
+            "Risk: Message interception, verification code theft. Can intercept all incoming messages including sensitive verification codes.",
+            android.Manifest.permission.RECEIVE_SMS
+        ));
+
+        permissions.add(new PermissionItem(
+            "READ_CALL_LOG",
+            "Read Call Log",
+            "Allows the app to read all call history on your device, including incoming/outgoing calls and call duration.",
+            "Risk: Privacy breach, social graph building. Attackers can analyze your call patterns to build social relationships and identify important contacts.",
+            android.Manifest.permission.READ_CALL_LOG
+        ));
+
+        permissions.add(new PermissionItem(
+            "WRITE_CALL_LOG",
+            "Modify Call Log",
+            "Allows the app to add, delete, or modify call history on your device.",
+            "Risk: Call log tampering, evidence destruction. Rogue apps can delete call records to hide malicious activities.",
+            android.Manifest.permission.WRITE_CALL_LOG
+        ));
+
+        permissions.add(new PermissionItem(
+            "RECORD_AUDIO",
+            "Microphone Access",
+            "Allows the app to access the device microphone and record audio at any time.",
+            "Risk: Eavesdropping, voice recording. Attackers can record your conversations, ambient sounds, and even your voiceprint.",
+            android.Manifest.permission.RECORD_AUDIO
+        ));
+
+        permissions.add(new PermissionItem(
+            "CAMERA",
+            "Camera Access",
+            "Allows the app to access the device camera and take photos/videos at any time.",
+            "Risk: Secret photography, surveillance. Rogue apps can take photos or record videos without your knowledge, potentially capturing sensitive information.",
+            android.Manifest.permission.CAMERA
+        ));
+
+        permissions.add(new PermissionItem(
+            "READ_EXTERNAL_STORAGE",
+            "Read Storage",
+            "Allows the app to read all files on your device's external storage, including photos, documents, and downloads.",
+            "Risk: File theft, privacy breach. Attackers can access all your personal files, photos, documents, and sensitive data.",
+            android.Manifest.permission.READ_EXTERNAL_STORAGE
+        ));
+
+        permissions.add(new PermissionItem(
+            "WRITE_EXTERNAL_STORAGE",
+            "Write Storage",
+            "Allows the app to write files to your device's external storage.",
+            "Risk: Malware installation, data corruption. Rogue apps can install malware, modify system files, or corrupt your data.",
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+        ));
+
+        permissions.add(new PermissionItem(
+            "ACCESS_MEDIA_LOCATION",
+            "Media Location",
+            "Allows the app to access location information embedded in photos and videos.",
+            "Risk: Location exposure from media. Attackers can extract location information from your photos to track your movements.",
+            android.Manifest.permission.ACCESS_MEDIA_LOCATION
+        ));
+
+        permissions.add(new PermissionItem(
+            "READ_PHONE_STATE",
+            "Phone State",
+            "Allows the app to read phone state information, including phone number, IMEI, SIM card information, and call status.",
+            "Risk: Device fingerprinting, IMEI tracking. Attackers can use IMEI for device tracking and identification across different apps.",
+            android.Manifest.permission.READ_PHONE_STATE
+        ));
+
+        permissions.add(new PermissionItem(
+            "CALL_PHONE",
+            "Make Calls",
+            "Allows the app to make phone calls without user confirmation.",
+            "Risk: Unauthorized calls, fee fraud. Rogue apps can make premium calls or international calls to rack up charges.",
+            android.Manifest.permission.CALL_PHONE
+        ));
+
+        permissions.add(new PermissionItem(
+            "ANSWER_PHONE_CALLS",
+            "Answer Calls",
+            "Allows the app to answer incoming phone calls automatically.",
+            "Risk: Call hijacking, fraud. Rogue apps can intercept and answer calls to steal sensitive information.",
+            android.Manifest.permission.ANSWER_PHONE_CALLS
+        ));
+
+        permissions.add(new PermissionItem(
+            "USE_FINGERPRINT",
+            "Fingerprint Access",
+            "Allows the app to access the device's fingerprint sensor for biometric authentication.",
+            "Risk: Biometric data theft, authentication bypass. Attackers can potentially steal fingerprint data or use it for unauthorized access.",
+            android.Manifest.permission.USE_FINGERPRINT
+        ));
+
+        permissions.add(new PermissionItem(
+            "USE_BIOMETRIC",
+            "Biometric Access",
+            "Allows the app to access biometric authentication features (fingerprint, face, iris).",
+            "Risk: Biometric data theft, unauthorized authentication. Compromised biometric data cannot be changed like passwords.",
+            android.Manifest.permission.USE_BIOMETRIC
+        ));
+
+        permissions.add(new PermissionItem(
+            "ACCESS_NOTIFICATIONS",
+            "Notification Access",
+            "Allows the app to read all notifications on your device, including messages, emails, and app alerts.",
+            "Risk: Notification spying, privacy breach. Attackers can read all your notifications to access sensitive information.",
+            "android.permission.ACCESS_NOTIFICATIONS"
+        ));
+
+        permissions.add(new PermissionItem(
+            "BIND_ACCESSIBILITY_SERVICE",
+            "Accessibility Service",
+            "Allows the app to act as an accessibility service, which can monitor and control user interactions with the device.",
+            "Risk: Full device control, keylogging. Accessibility services can monitor all user actions, capture keystrokes, and control the device remotely.",
+            "android.permission.BIND_ACCESSIBILITY_SERVICE"
+        ));
+
+        permissions.add(new PermissionItem(
+            "BIND_VPN_SERVICE",
+            "VPN Service",
+            "Allows the app to create a VPN connection, which can route all network traffic through its servers.",
+            "Risk: Traffic interception, man-in-the-middle attacks. A malicious VPN can intercept and monitor all your network traffic.",
+            "android.permission.BIND_VPN_SERVICE"
+        ));
+
+        permissions.add(new PermissionItem(
             "SYSTEM_ALERT_WINDOW",
-            hasOverlay ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
+            "Overlay Window",
+            "Allows the app to display overlays on top of other apps, including the lock screen.",
+            "Risk: UI spoofing, phishing attacks. Rogue apps can create fake login screens to steal passwords.",
+            "android.permission.SYSTEM_ALERT_WINDOW"
         ));
 
-        // 自动启动权限（厂商特定，无法统一检测）
-        boolean hasAutoStart = false;
-        items.add(new PermissionItem(
-            "🔄 自动启动",
-            "厂商特定",
-            "手机开机后自动启动应用，无需用户手动打开",
-            "【风险】占用系统资源、增加耗电、后台持续运行，可能收集用户隐私数据",
-            "AUTO_START",
-            PermissionItem.STATUS_UNAVAILABLE
+        permissions.add(new PermissionItem(
+            "PACKAGE_USAGE_STATS",
+            "App Usage Stats",
+            "Allows the app to access detailed app usage statistics, including which apps you use and for how long.",
+            "Risk: Usage tracking, habit profiling. Attackers can analyze your app usage patterns to understand your habits and interests.",
+            "android.permission.PACKAGE_USAGE_STATS"
         ));
 
-        // 读取剪贴板
-        boolean hasClipboard = false;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            try {
-                hasClipboard = ActivityCompat.checkSelfPermission(context, "android.permission.READ_CLIPBOARD_IN_BACKGROUND")
-                        == PackageManager.PERMISSION_GRANTED;
-            } catch (Exception e) {
-                hasClipboard = false;
-            }
-        }
-        items.add(new PermissionItem(
-            "📋 读取剪贴板",
-            hasClipboard ? "已授权" : "未授权",
-            "可读取用户复制到剪贴板的所有内容，包括密码、网址、文本等",
-            "【风险】窃取用户密码、银行卡号、验证码等敏感信息，造成财产损失",
-            "READ_CLIPBOARD_IN_BACKGROUND",
-            hasClipboard ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
+        permissions.add(new PermissionItem(
+            "READ_CALENDAR",
+            "Read Calendar",
+            "Allows the app to read all calendar events on your device.",
+            "Risk: Schedule exposure, privacy breach. Attackers can know your schedule, appointments, and travel plans.",
+            android.Manifest.permission.READ_CALENDAR
         ));
 
-        // 附近设备（Android 12+）
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            boolean hasNearby = ActivityCompat.checkSelfPermission(context, Manifest.permission.NEARBY_WIFI_DEVICES)
-                    == PackageManager.PERMISSION_GRANTED;
-            items.add(new PermissionItem(
-                "📶 附近设备",
-                hasNearby ? "已授权" : "未授权",
-                "可发现附近WiFi和蓝牙设备，获取设备列表和信号强度",
-                "【风险】分析用户周边环境，追踪位置变化，构建用户活动模式",
-                "NEARBY_WIFI_DEVICES",
-                hasNearby ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-            ));
+        permissions.add(new PermissionItem(
+            "WRITE_CALENDAR",
+            "Modify Calendar",
+            "Allows the app to add, delete, or modify calendar events on your device.",
+            "Risk: Schedule tampering, social engineering. Rogue apps can add fake events to trick you into attending malicious meetings.",
+            android.Manifest.permission.WRITE_CALENDAR
+        ));
+
+        permissions.add(new PermissionItem(
+            "READ_HISTORY_BOOKMARKS",
+            "Read Browser History",
+            "Allows the app to read your browser history and bookmarks.",
+            "Risk: Browsing history exposure, interest profiling. Attackers can know all websites you've visited and build detailed user profiles.",
+            "android.permission.READ_HISTORY_BOOKMARKS"
+        ));
+
+        permissions.add(new PermissionItem(
+            "INSTALL_PACKAGES",
+            "Install Apps",
+            "Allows the app to install other applications without user confirmation.",
+            "Risk: Malware installation, device takeover. Rogue apps can install malicious software to take control of your device.",
+            "android.permission.INSTALL_PACKAGES"
+        ));
+
+        permissions.add(new PermissionItem(
+            "DELETE_PACKAGES",
+            "Uninstall Apps",
+            "Allows the app to uninstall other applications without user confirmation.",
+            "Risk: App removal, system disruption. Rogue apps can uninstall security apps or important system applications.",
+            "android.permission.DELETE_PACKAGES"
+        ));
+
+        permissions.add(new PermissionItem(
+            "ACCESS_WIFI_STATE",
+            "WiFi State",
+            "Allows the app to access WiFi connection information, including SSID, BSSID, and connection status.",
+            "Risk: Location inference, network tracking. WiFi information can be used to infer your location and track your movements.",
+            android.Manifest.permission.ACCESS_WIFI_STATE
+        ));
+
+        permissions.add(new PermissionItem(
+            "CHANGE_WIFI_STATE",
+            "Change WiFi State",
+            "Allows the app to enable/disable WiFi and connect to WiFi networks.",
+            "Risk: Network manipulation, connection hijacking. Rogue apps can connect to malicious WiFi networks to intercept traffic.",
+            android.Manifest.permission.CHANGE_WIFI_STATE
+        ));
+
+        permissions.add(new PermissionItem(
+            "BLUETOOTH",
+            "Bluetooth Access",
+            "Allows the app to access Bluetooth functionality, including discovering and connecting to nearby devices.",
+            "Risk: Device tracking, data theft. Attackers can discover nearby Bluetooth devices and potentially steal data.",
+            android.Manifest.permission.BLUETOOTH
+        ));
+
+        permissions.add(new PermissionItem(
+            "BLUETOOTH_ADMIN",
+            "Bluetooth Admin",
+            "Allows the app to manage Bluetooth settings, including pairing and unpairing devices.",
+            "Risk: Bluetooth manipulation, unauthorized pairing. Rogue apps can pair with malicious devices or disconnect legitimate ones.",
+            android.Manifest.permission.BLUETOOTH_ADMIN
+        ));
+
+        permissions.add(new PermissionItem(
+            "WAKE_LOCK",
+            "Wake Lock",
+            "Allows the app to keep the device awake even when the screen is off.",
+            "Risk: Battery drain, background activity. Rogue apps can keep the device awake to perform malicious activities in the background.",
+            android.Manifest.permission.WAKE_LOCK
+        ));
+
+        permissions.add(new PermissionItem(
+            "INTERNET",
+            "Internet Access",
+            "Allows the app to access the internet and send/receive data.",
+            "Risk: Data transmission, privacy leakage. Without proper encryption, data can be intercepted during transmission.",
+            android.Manifest.permission.INTERNET
+        ));
+
+        permissions.add(new PermissionItem(
+            "ACCESS_NETWORK_STATE",
+            "Network State",
+            "Allows the app to access network connection information, including whether connected to WiFi or mobile data.",
+            "Risk: Connection tracking, usage monitoring. Can determine your network type and connection status for tracking purposes.",
+            android.Manifest.permission.ACCESS_NETWORK_STATE
+        ));
+
+        permissions.add(new PermissionItem(
+            "FOREGROUND_SERVICE",
+            "Foreground Service",
+            "Allows the app to run foreground services, which continue running even when the app is not in the foreground.",
+            "Risk: Persistent background activity, resource consumption. Rogue apps can run malicious services continuously.",
+            android.Manifest.permission.FOREGROUND_SERVICE
+        ));
+
+        permissions.add(new PermissionItem(
+            "SCHEDULE_EXACT_ALARM",
+            "Exact Alarm",
+            "Allows the app to set exact alarm times, which can wake up the device at specific moments.",
+            "Risk: Device wake-up, privacy invasion. Can wake up device at specific times to perform activities without user knowledge.",
+            android.Manifest.permission.SCHEDULE_EXACT_ALARM
+        ));
+
+        permissions.add(new PermissionItem(
+            "POST_NOTIFICATIONS",
+            "Post Notifications",
+            "Allows the app to display notifications to the user.",
+            "Risk: Spam notifications, phishing. Rogue apps can send fake notifications to trick users into clicking malicious links.",
+            android.Manifest.permission.POST_NOTIFICATIONS
+        ));
+
+        permissions.add(new PermissionItem(
+            "NEARBY_WIFI_DEVICES",
+            "Nearby WiFi Devices",
+            "Allows the app to discover nearby WiFi devices.",
+            "Risk: Device tracking, location inference. Can discover nearby devices and infer user location through WiFi signals.",
+            android.Manifest.permission.NEARBY_WIFI_DEVICES
+        ));
+
+        permissions.add(new PermissionItem(
+            "READ_MEDIA_IMAGES",
+            "Read Media Images",
+            "Allows the app to read images from device storage.",
+            "Risk: Photo theft, privacy breach. Attackers can access all your photos including sensitive ones.",
+            android.Manifest.permission.READ_MEDIA_IMAGES
+        ));
+
+        permissions.add(new PermissionItem(
+            "READ_MEDIA_VIDEO",
+            "Read Media Video",
+            "Allows the app to read videos from device storage.",
+            "Risk: Video theft, privacy breach. Attackers can access all your videos including sensitive ones.",
+            android.Manifest.permission.READ_MEDIA_VIDEO
+        ));
+
+        permissions.add(new PermissionItem(
+            "READ_MEDIA_AUDIO",
+            "Read Media Audio",
+            "Allows the app to read audio files from device storage.",
+            "Risk: Audio theft, privacy breach. Attackers can access all your audio recordings including voice memos.",
+            android.Manifest.permission.READ_MEDIA_AUDIO
+        ));
+
+        permissions.add(new PermissionItem(
+            "MANAGE_EXTERNAL_STORAGE",
+            "Manage External Storage",
+            "Allows the app to manage all files on external storage, including access to all directories.",
+            "Risk: Full storage access, data manipulation. Rogue apps can access and modify all files on your device.",
+            "android.permission.MANAGE_EXTERNAL_STORAGE"
+        ));
+
+        permissions.add(new PermissionItem(
+            "ACCESS_SUPERUSER",
+            "Root Access",
+            "Allows the app to run commands with root privileges.",
+            "Risk: Full system control, device compromise. Root access allows complete control over the device, including modifying system files and bypassing security.",
+            "android.permission.ACCESS_SUPERUSER"
+        ));
+
+        permissions.add(new PermissionItem(
+            "READ_LOGS",
+            "Read Logs",
+            "Allows the app to read system logs, which may contain sensitive information.",
+            "Risk: Log analysis, information leakage. Attackers can read system logs to find sensitive information and debug data.",
+            "android.permission.READ_LOGS"
+        ));
+
+        permissions.add(new PermissionItem(
+            "WRITE_SECURE_SETTINGS",
+            "Modify Secure Settings",
+            "Allows the app to modify secure system settings.",
+            "Risk: System configuration manipulation. Rogue apps can modify system settings to disable security features.",
+            "android.permission.WRITE_SECURE_SETTINGS"
+        ));
+
+        permissions.add(new PermissionItem(
+            "SET_WALLPAPER",
+            "Set Wallpaper",
+            "Allows the app to set the device wallpaper.",
+            "Risk: Visual spoofing. Rogue apps can change wallpaper to display misleading information.",
+            android.Manifest.permission.SET_WALLPAPER
+        ));
+
+        permissions.add(new PermissionItem(
+            "SET_WALLPAPER_HINTS",
+            "Set Wallpaper Hints",
+            "Allows the app to set wallpaper hints.",
+            "Risk: Visual manipulation. Can affect how wallpapers are displayed on the device.",
+            android.Manifest.permission.SET_WALLPAPER_HINTS
+        ));
+
+        for (PermissionItem item : permissions) {
+            item.status = checkPermission(item.permission);
         }
 
-        // 精确闹钟（Android 12+）
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            boolean hasExactAlarm = ActivityCompat.checkSelfPermission(context, Manifest.permission.SCHEDULE_EXACT_ALARM)
-                    == PackageManager.PERMISSION_GRANTED;
-            items.add(new PermissionItem(
-                "⏰ 精确闹钟",
-                hasExactAlarm ? "已授权" : "未授权",
-                "可设置精确到秒的闹钟，即使手机处于低功耗模式也能唤醒",
-                "【风险】频繁唤醒手机，增加耗电，可能用于后台定时收集数据",
-                "SCHEDULE_EXACT_ALARM",
-                hasExactAlarm ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-            ));
-        }
-
-        // 访问媒体位置
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            boolean hasMediaLocation = ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_MEDIA_LOCATION)
-                    == PackageManager.PERMISSION_GRANTED;
-            items.add(new PermissionItem(
-                "📍 媒体位置",
-                hasMediaLocation ? "已授权" : "未授权",
-                "可读取照片和视频中的地理标签信息，获取拍摄地点",
-                "【风险】追踪用户拍摄地点，分析出行路线，泄露个人行踪",
-                "ACCESS_MEDIA_LOCATION",
-                hasMediaLocation ? PermissionItem.STATUS_GRANTED : PermissionItem.STATUS_DENIED
-            ));
-        }
-
-        return items;
+        return permissions;
     }
 
-    // 权限项类
-    public static class PermissionItem {
-        public static final String STATUS_GRANTED = "granted";
-        public static final String STATUS_DENIED = "denied";
-        public static final String STATUS_UNAVAILABLE = "unavailable";
+    private String checkPermission(String permission) {
+        if (permission == null) {
+            return "Vendor Specific";
+        }
+        try {
+            int result = context.checkSelfPermission(permission);
+            return result == PackageManager.PERMISSION_GRANTED ? "Granted" : "Denied";
+        } catch (Exception e) {
+            return "Vendor Specific";
+        }
+    }
 
+    public static class PermissionItem {
         public String name;
-        public String value;
+        public String displayName;
         public String description;
         public String risk;
         public String permission;
-        public String statusType;
+        public String status;
 
-        public PermissionItem(String name, String value, String description,
-                           String risk, String permission, String statusType) {
+        public PermissionItem(String name, String displayName, String description, String risk, String permission) {
             this.name = name;
-            this.value = value;
+            this.displayName = displayName;
             this.description = description;
             this.risk = risk;
             this.permission = permission;
-            this.statusType = statusType;
+            this.status = "Denied";
         }
     }
 }

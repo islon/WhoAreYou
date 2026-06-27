@@ -7,6 +7,8 @@
     <string name="main_subtitle">Privacy Information Transparency</string>
     <string name="btn_export">Export Report</string>
     <string name="btn_about">About App</string>
+    <string name="btn_back">Back</string>
+    <string name="app_version">Version v1.1</string>
 
     <!-- Tab Labels -->
     <string name="tab_free">🔓 No Permission</string>
@@ -57,6 +59,7 @@
     <string name="about_privacy">🔒 Privacy Protection</string>
     <string name="about_tech">🛠️ Technical Details</string>
     <string name="about_suggestions">💡 Protection Tips</string>
+    <string name="about_intro">📋 App Introduction</string>
 
     <!-- Permission Warning -->
     <string name="permission_warning_title">⚠️ %d Permissions Granted</string>
@@ -64,4 +67,25 @@
     <!-- Others -->
     <string name="loading">Loading...</string>
     <string name="error">Error</string>
+
+    <!-- Data Labels -->
+    <string name="label_charging">Charging</string>
+    <string name="label_full">Full</string>
+    <string name="label_discharging">Discharging</string>
+    <string name="label_ac">AC</string>
+    <string name="label_usb">USB</string>
+    <string name="label_wireless">Wireless</string>
+    <string name="label_not_connected">Not Connected</string>
+    <string name="label_portrait">Portrait</string>
+    <string name="label_landscape">Landscape</string>
+    <string name="label_normal">Normal</string>
+    <string name="label_silent">Silent</string>
+    <string name="label_vibrate">Vibrate</string>
+    <string name="label_auto">Auto</string>
+    <string name="label_manual">Manual</string>
+    <string name="label_on">On</string>
+    <string name="label_off">Off</string>
+    <string name="label_24_hour">24-hour</string>
+    <string name="label_12_hour">12-hour</string>
+    <string name="label_system_default">System Default</string>
 </resources>

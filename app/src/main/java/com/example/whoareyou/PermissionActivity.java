@@ -26,32 +26,22 @@ public class PermissionActivity extends AppCompatActivity {
 
         container = findViewById(R.id.permissionContainer);
 
-        // 添加头部
         addHeader();
 
-        // 收集权限信息
         PermissionCollector collector = new PermissionCollector(this);
-        List<PermissionCollector.PermissionItem> permissions = collector.collectAllPermissions();
+        List<PermissionCollector.PermissionItem> permissions = collector.getAllPermissions();
 
-        // 统计
         int totalCount = permissions.size();
         int grantedCount = 0;
         for (PermissionCollector.PermissionItem item : permissions) {
-            if (PermissionCollector.PermissionItem.STATUS_GRANTED.equals(item.statusType)) {
+            if ("Granted".equals(item.status)) {
                 grantedCount++;
             }
         }
 
-        // 添加统计
         addStats(totalCount, grantedCount);
-
-        // 添加说明
         addWarning();
-
-        // 添加权限列表
         addPermissionList(permissions);
-
-        // 添加返回按钮
         addBackButton();
     }
 
@@ -62,14 +52,14 @@ public class PermissionActivity extends AppCompatActivity {
         header.setPadding(dpToPx(24), dpToPx(24), dpToPx(24), dpToPx(32));
 
         TextView title = new TextView(this);
-        title.setText("🔐 权限获取");
+        title.setText("🔐 Permission Access");
         title.setTextSize(28);
         title.setTypeface(null, android.graphics.Typeface.BOLD);
         title.setTextColor(Color.WHITE);
         title.setGravity(Gravity.CENTER);
 
         TextView subtitle = new TextView(this);
-        subtitle.setText("以下信息需要应用获得授权才能获取");
+        subtitle.setText("The following information requires app authorization to access");
         subtitle.setTextSize(14);
         subtitle.setTextColor(Color.parseColor("#E0E0E0"));
         subtitle.setGravity(Gravity.CENTER);
@@ -86,29 +76,24 @@ public class PermissionActivity extends AppCompatActivity {
         statsLayout.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16));
         statsLayout.setBackgroundColor(Color.WHITE);
 
-        // 总权限数
-        LinearLayout totalLayout = createStatItem(String.valueOf(total), "可申请权限", Color.parseColor("#6366F1"));
+        LinearLayout totalLayout = createStatItem(String.valueOf(total), "Permissions", Color.parseColor("#6366F1"));
         LinearLayout.LayoutParams totalParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
         totalLayout.setLayoutParams(totalParams);
 
-        // 分隔线
         View divider1 = new View(this);
         divider1.setBackgroundColor(Color.parseColor("#E5E7EB"));
         LinearLayout.LayoutParams dividerParams = new LinearLayout.LayoutParams(1, dpToPx(40));
         divider1.setLayoutParams(dividerParams);
 
-        // 已授权数
-        LinearLayout grantedLayout = createStatItem(String.valueOf(granted), "已授权", granted > 0 ? Color.parseColor("#EF4444") : Color.parseColor("#10B981"));
+        LinearLayout grantedLayout = createStatItem(String.valueOf(granted), "Granted", granted > 0 ? Color.parseColor("#EF4444") : Color.parseColor("#10B981"));
         LinearLayout.LayoutParams grantedParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
         grantedLayout.setLayoutParams(grantedParams);
 
-        // 分隔线
         View divider2 = new View(this);
         divider2.setBackgroundColor(Color.parseColor("#E5E7EB"));
         divider2.setLayoutParams(dividerParams);
 
-        // 未授权数
-        LinearLayout deniedLayout = createStatItem(String.valueOf(total - granted), "未授权", Color.parseColor("#F59E0B"));
+        LinearLayout deniedLayout = createStatItem(String.valueOf(total - granted), "Denied", Color.parseColor("#F59E0B"));
         LinearLayout.LayoutParams deniedParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
         deniedLayout.setLayoutParams(deniedParams);
 
@@ -162,13 +147,13 @@ public class PermissionActivity extends AppCompatActivity {
         warningCard.setBackground(warningBg);
 
         TextView warningTitle = new TextView(this);
-        warningTitle.setText("⚠️ 隐私风险提示");
+        warningTitle.setText("⚠️ Privacy Risk Warning");
         warningTitle.setTextSize(14);
         warningTitle.setTypeface(null, android.graphics.Typeface.BOLD);
         warningTitle.setTextColor(Color.parseColor("#92400E"));
 
         TextView warningText = new TextView(this);
-        warningText.setText("已授权的权限意味着应用可以随时访问这些数据。请定期检查手机各应用的权限，撤销不必要的授权。");
+        warningText.setText("Authorized permissions mean apps can access this data at any time. Please regularly check app permissions and revoke unnecessary authorizations.");
         warningText.setTextSize(13);
         warningText.setTextColor(Color.parseColor("#78350F"));
         warningText.setLineSpacing(dpToPx(4), 1.3f);
@@ -182,24 +167,20 @@ public class PermissionActivity extends AppCompatActivity {
     }
 
     private void addPermissionList(List<PermissionCollector.PermissionItem> permissions) {
-        // 分组
         Map<String, String> groups = new HashMap<>();
-        groups.put("📍 位置权限", "location");
-        groups.put("👤 个人信息", "personal");
-        groups.put("🔧 设备权限", "device");
+        groups.put("📍 Location", "location");
+        groups.put("👤 Personal Info", "personal");
+        groups.put("🔧 Device", "device");
 
-        // 位置权限
-        addGroup("📍 位置权限", getPermissionByGroup(permissions, new String[]{
+        addGroup("📍 Location", getPermissionByGroup(permissions, new String[]{
             "ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"
         }));
 
-        // 个人信息
-        addGroup("👤 个人信息", getPermissionByGroup(permissions, new String[]{
+        addGroup("👤 Personal Info", getPermissionByGroup(permissions, new String[]{
             "READ_CONTACTS", "READ_SMS", "READ_CALENDAR", "READ_CALL_LOG"
         }));
 
-        // 设备权限
-        addGroup("🔧 设备权限", getPermissionByGroup(permissions, new String[]{
+        addGroup("🔧 Device", getPermissionByGroup(permissions, new String[]{
             "CAMERA", "RECORD_AUDIO", "READ_PHONE_STATE", "READ_EXTERNAL_STORAGE"
         }));
     }
@@ -219,7 +200,6 @@ public class PermissionActivity extends AppCompatActivity {
     }
 
     private void addGroup(String groupName, List<PermissionCollector.PermissionItem> items) {
-        // 分组标题
         LinearLayout titleLayout = new LinearLayout(this);
         titleLayout.setOrientation(LinearLayout.VERTICAL);
         titleLayout.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(8));
@@ -233,7 +213,6 @@ public class PermissionActivity extends AppCompatActivity {
         titleLayout.addView(title);
         container.addView(titleLayout);
 
-        // 权限项
         for (PermissionCollector.PermissionItem item : items) {
             addPermissionCard(item);
         }
@@ -257,13 +236,12 @@ public class PermissionActivity extends AppCompatActivity {
         cardParams.setMargins(dpToPx(16), 0, dpToPx(16), dpToPx(8));
         card.setLayoutParams(cardParams);
 
-        // 头部：名称和状态标签
         LinearLayout header = new LinearLayout(this);
         header.setOrientation(LinearLayout.HORIZONTAL);
         header.setGravity(Gravity.CENTER_VERTICAL);
 
         TextView nameView = new TextView(this);
-        nameView.setText(item.name);
+        nameView.setText(item.displayName);
         nameView.setTextSize(15);
         nameView.setTextColor(Color.parseColor("#1F2937"));
         nameView.setTypeface(null, android.graphics.Typeface.BOLD);
@@ -272,10 +250,9 @@ public class PermissionActivity extends AppCompatActivity {
         );
         nameView.setLayoutParams(nameParams);
 
-        // 状态标签
         TextView statusTag = new TextView(this);
-        boolean isGranted = PermissionCollector.PermissionItem.STATUS_GRANTED.equals(item.statusType);
-        statusTag.setText(isGranted ? "已授权" : "未授权");
+        boolean isGranted = "Granted".equals(item.status);
+        statusTag.setText(isGranted ? "Granted" : "Denied");
         statusTag.setTextSize(11);
         statusTag.setPadding(dpToPx(8), dpToPx(3), dpToPx(8), dpToPx(3));
         statusTag.setGravity(Gravity.CENTER);
@@ -283,7 +260,7 @@ public class PermissionActivity extends AppCompatActivity {
         GradientDrawable tagBg = new GradientDrawable();
         tagBg.setCornerRadius(dpToPx(12));
 
-        if (PermissionCollector.PermissionItem.STATUS_GRANTED.equals(item.statusType)) {
+        if ("Granted".equals(item.status)) {
             tagBg.setColor(Color.parseColor("#FEE2E2"));
             statusTag.setTextColor(Color.parseColor("#DC2626"));
         } else {
@@ -296,7 +273,6 @@ public class PermissionActivity extends AppCompatActivity {
         header.addView(statusTag);
         card.addView(header);
 
-        // 权限标识
         TextView permView = new TextView(this);
         permView.setText(item.permission);
         permView.setTextSize(11);
@@ -304,14 +280,12 @@ public class PermissionActivity extends AppCompatActivity {
         permView.setPadding(0, dpToPx(2), 0, dpToPx(8));
         card.addView(permView);
 
-        // 说明
         TextView descView = new TextView(this);
         descView.setText(item.description);
         descView.setTextSize(13);
         descView.setTextColor(Color.parseColor("#6B7280"));
         card.addView(descView);
 
-        // 风险提示（如果有）
         if (item.risk != null && !item.risk.isEmpty()) {
             LinearLayout riskLayout = new LinearLayout(this);
             riskLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -341,7 +315,7 @@ public class PermissionActivity extends AppCompatActivity {
 
     private void addBackButton() {
         Button backButton = new Button(this);
-        backButton.setText("返回");
+        backButton.setText("Back");
         backButton.setTextColor(Color.WHITE);
         backButton.setTextSize(16);
 
