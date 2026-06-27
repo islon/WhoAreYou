@@ -61,7 +61,7 @@ Each permission includes:
 
 | 首页/无需权限 | 需要权限 | 关于应用 |
 |:------------:|:--------:|:--------:|
-| ![首页/无需权限](screenshots/main.png) | ![需要权限](screenshots/permission.png) | ![关于应用](screenshots/about.png) |
+| ![首页/无需权限](https://github.com/islon/WhoAreYou/raw/main/screenshots/main.png) | ![需要权限](https://github.com/islon/WhoAreYou/raw/main/screenshots/permission.png) | ![关于应用](https://github.com/islon/WhoAreYou/raw/main/screenshots/about.png) |
 
 ### 首页/无需权限
 展示55+项无需任何权限即可获取的设备信息，按类别分类并显示风险等级。
