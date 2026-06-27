@@ -602,7 +602,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void addCategorySection(String category, List<DeviceInfoCollector.InfoItem> items) {
         TextView categoryTitle = new TextView(this);
-        categoryTitle.setText(getCategoryIcon(category) + " " + category);
+        categoryTitle.setText(getCategoryIcon(category) + " " + getCategoryDisplayName(category));
         categoryTitle.setTextSize(16);
         categoryTitle.setTextColor(Color.parseColor("#374151"));
         categoryTitle.setTypeface(null, android.graphics.Typeface.BOLD);
@@ -769,6 +769,29 @@ public class MainActivity extends AppCompatActivity {
                 return Color.parseColor("#F59E0B");
             default:
                 return Color.parseColor("#3B82F6");
+        }
+    }
+
+    private String getCategoryDisplayName(String category) {
+        switch (category) {
+            case DeviceInfoCollector.InfoItem.CATEGORY_DEVICE:
+                return getString(R.string.category_device);
+            case DeviceInfoCollector.InfoItem.CATEGORY_SYSTEM:
+                return getString(R.string.category_system);
+            case DeviceInfoCollector.InfoItem.CATEGORY_NETWORK:
+                return getString(R.string.category_network);
+            case DeviceInfoCollector.InfoItem.CATEGORY_STORAGE:
+                return getString(R.string.category_storage);
+            case DeviceInfoCollector.InfoItem.CATEGORY_DISPLAY:
+                return getString(R.string.category_display);
+            case DeviceInfoCollector.InfoItem.CATEGORY_APP:
+                return getString(R.string.category_app);
+            case DeviceInfoCollector.InfoItem.CATEGORY_SENSOR:
+                return getString(R.string.category_sensor);
+            case DeviceInfoCollector.InfoItem.CATEGORY_SECURITY:
+                return getString(R.string.category_security);
+            default:
+                return category;
         }
     }
 

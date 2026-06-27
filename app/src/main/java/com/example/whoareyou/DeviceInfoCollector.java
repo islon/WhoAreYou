@@ -77,65 +77,65 @@ public class DeviceInfoCollector {
         List<InfoItem> items = new ArrayList<>();
 
         items.add(new InfoItem(
-            "Device Brand",
+            context.getString(R.string.info_device_brand),
             Build.MANUFACTURER,
-            "Device manufacturer identification. Used by advertisers for device classification and market analysis; rogue apps may exploit model-specific vulnerabilities",
+            context.getString(R.string.usage_device_brand),
             InfoItem.CATEGORY_DEVICE,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Device Model",
+            context.getString(R.string.info_device_model),
             Build.MODEL,
-            "Exact device model. Used for device value assessment, consumer capability profiling; some older models have known vulnerabilities",
+            context.getString(R.string.usage_device_model),
             InfoItem.CATEGORY_DEVICE,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Device Codename",
+            context.getString(R.string.info_device_codename),
             Build.DEVICE,
-            "Internal device codename. Used for precise device identification; attackers may search for specific device vulnerabilities",
+            context.getString(R.string.usage_device_codename),
             InfoItem.CATEGORY_DEVICE,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Product Name",
+            context.getString(R.string.info_product_name),
             Build.PRODUCT,
-            "Commercial product name. Used for market segmentation and user group analysis",
+            context.getString(R.string.usage_product_name),
             InfoItem.CATEGORY_DEVICE,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Hardware Platform",
+            context.getString(R.string.info_hardware_platform),
             Build.HARDWARE,
-            "Low-level hardware identifier. Used for performance optimization and driver compatibility analysis",
+            context.getString(R.string.usage_hardware_platform),
             InfoItem.CATEGORY_DEVICE,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Device ID (Android ID)",
+            context.getString(R.string.info_android_id),
             getAndroidId(),
-            "Core privacy data! Used for cross-app user tracking, ad attribution, and account linking. Changes only after factory reset",
+            context.getString(R.string.usage_android_id),
             InfoItem.CATEGORY_DEVICE,
             InfoItem.LEVEL_DANGER
         ));
 
         items.add(new InfoItem(
-            "CPU Cores",
+            context.getString(R.string.info_cpu_cores),
             String.valueOf(Runtime.getRuntime().availableProcessors()),
-            "Computational capability assessment. Used to determine device performance level, game compatibility; infers user consumption level",
+            context.getString(R.string.usage_cpu_cores),
             InfoItem.CATEGORY_DEVICE,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "CPU Architecture",
+            context.getString(R.string.info_cpu_arch),
             Build.SUPPORTED_ABIS != null && Build.SUPPORTED_ABIS.length > 0 ? Build.SUPPORTED_ABIS[0] : "Unknown",
-            "Processor architecture. Used to select correct malicious code version; determines security feature support; rogue apps may target specific architectures",
+            context.getString(R.string.usage_cpu_arch),
             InfoItem.CATEGORY_DEVICE,
             InfoItem.LEVEL_INFO
         ));
@@ -146,17 +146,17 @@ public class DeviceInfoCollector {
             activityManager.getMemoryInfo(memoryInfo);
 
             items.add(new InfoItem(
-                "Total Memory",
+                context.getString(R.string.info_total_memory),
                 formatSize(memoryInfo.totalMem),
-                "Device memory capacity. Used for performance grading, app recommendation; infers device price range and user spending ability",
+                context.getString(R.string.usage_total_memory),
                 InfoItem.CATEGORY_DEVICE,
                 InfoItem.LEVEL_INFO
             ));
 
             items.add(new InfoItem(
-                "Available Memory",
+                context.getString(R.string.info_available_memory),
                 formatSize(memoryInfo.availMem),
-                "Current available memory. Used to determine device load status; infers user habits (multi-tasking or not)",
+                context.getString(R.string.usage_available_memory),
                 InfoItem.CATEGORY_DEVICE,
                 InfoItem.LEVEL_INFO
             ));
@@ -177,17 +177,17 @@ public class DeviceInfoCollector {
                              plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS ? "Wireless" : "Not Connected";
 
             items.add(new InfoItem(
-                "Battery Level",
+                context.getString(R.string.info_battery_level),
                 String.format("%.0f%% (%s)", batteryPct, chargingStatus),
-                "Battery status. Used to infer usage scenarios (charging may mean at home/office); advertisers use for push timing",
+                context.getString(R.string.usage_battery_level),
                 InfoItem.CATEGORY_DEVICE,
                 InfoItem.LEVEL_INFO
             ));
 
             items.add(new InfoItem(
-                "Charging Method",
+                context.getString(R.string.info_charging_method),
                 plugType,
-                "Charging type. Infers user location: USB may indicate at computer, AC may indicate at home or office",
+                context.getString(R.string.usage_charging_method),
                 InfoItem.CATEGORY_DEVICE,
                 InfoItem.LEVEL_INFO
             ));
@@ -200,90 +200,90 @@ public class DeviceInfoCollector {
         List<InfoItem> items = new ArrayList<>();
 
         items.add(new InfoItem(
-            "Android Version",
+            context.getString(R.string.info_android_version),
             Build.VERSION.RELEASE,
-            "System version. Used for compatibility checking, feature limitation; older versions may have known security vulnerabilities; rogue apps may exploit old version vulnerabilities",
+            context.getString(R.string.usage_android_version),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "SDK Version",
+            context.getString(R.string.info_sdk_version),
             String.valueOf(Build.VERSION.SDK_INT),
-            "API level. Precisely determines available features and security; low SDK means missing new security mechanisms",
+            context.getString(R.string.usage_sdk_version),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Security Patch Level",
+            context.getString(R.string.info_security_patch),
             Build.VERSION.SECURITY_PATCH,
-            "Important security indicator! Determines if device has fixed known vulnerabilities. Rogue apps may exploit unfixed vulnerabilities",
+            context.getString(R.string.usage_security_patch),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_WARNING
         ));
 
         items.add(new InfoItem(
-            "Baseband Version",
+            context.getString(R.string.info_baseband_version),
             Build.getRadioVersion(),
-            "Communication module version. Specific versions may have baseband vulnerabilities that can be remotely exploited",
+            context.getString(R.string.usage_baseband_version),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_WARNING
         ));
 
         items.add(new InfoItem(
-            "Kernel Version",
+            context.getString(R.string.info_kernel_version),
             System.getProperty("os.version", "Unknown"),
-            "Linux kernel version. Used to determine kernel vulnerability availability; old kernels may have privilege escalation vulnerabilities; rogue apps may exploit kernel vulnerabilities for higher permissions",
+            context.getString(R.string.usage_kernel_version),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_WARNING
         ));
 
         items.add(new InfoItem(
-            "Build Fingerprint",
+            context.getString(R.string.info_build_fingerprint),
             Build.FINGERPRINT,
-            "Complete system build identifier. Used for precise system source identification, determining if official ROM; traces system tampering history",
+            context.getString(R.string.usage_build_fingerprint),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Bootloader Version",
+            context.getString(R.string.info_bootloader_version),
             Build.BOOTLOADER,
-            "Bootloader version. Determines if device can be unlocked, if rooted",
+            context.getString(R.string.usage_bootloader_version),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "System Uptime",
+            context.getString(R.string.info_system_uptime),
             formatUptime(SystemClock.elapsedRealtime()),
-            "Device running duration. Infers user habits: short time may mean just powered on, long time may mean rare restarts",
+            context.getString(R.string.usage_system_uptime),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "System Language",
+            context.getString(R.string.info_system_language),
             Locale.getDefault().getDisplayLanguage() + " (" + Locale.getDefault().getLanguage() + ")",
-            "User language preference. Used for content recommendation, regional services; infers possible nationality or residence",
+            context.getString(R.string.usage_system_language),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "System Region",
+            context.getString(R.string.info_system_region),
             Locale.getDefault().getCountry(),
-            "Country/region code. Used for regional restrictions, content moderation; infers user's country",
+            context.getString(R.string.usage_system_region),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_WARNING
         ));
 
         items.add(new InfoItem(
-            "Timezone",
+            context.getString(R.string.info_timezone),
             TimeZone.getDefault().getID() + " (UTC" + (TimeZone.getDefault().getRawOffset() >= 0 ? "+" : "") +
             (TimeZone.getDefault().getRawOffset() / 3600000) + ")",
-            "Important location inference basis! Combined with other info can infer approximate user location",
+            context.getString(R.string.usage_timezone),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_WARNING
         ));
@@ -296,9 +296,9 @@ public class DeviceInfoCollector {
 
         String ipAddress = getIPAddress();
         items.add(new InfoItem(
-            "IP Address",
+            context.getString(R.string.info_ip_address),
             ipAddress,
-            "Network location identifier! Can be geolocated to city level via IP database; used for regional restrictions and risk control",
+            context.getString(R.string.usage_ip_address),
             InfoItem.CATEGORY_NETWORK,
             InfoItem.LEVEL_DANGER
         ));
@@ -314,33 +314,33 @@ public class DeviceInfoCollector {
                 }
 
                 items.add(new InfoItem(
-                    "WiFi Name (SSID)",
+                    context.getString(R.string.info_wifi_ssid),
                     ssid,
-                    "Important privacy data! Can infer user location type (home/office/mall/hotel); used for location fingerprinting",
+                    context.getString(R.string.usage_wifi_ssid),
                     InfoItem.CATEGORY_NETWORK,
                     InfoItem.LEVEL_DANGER
                 ));
 
                 items.add(new InfoItem(
-                    "WiFi BSSID",
+                    context.getString(R.string.info_wifi_bssid),
                     wifiInfo.getBSSID(),
-                    "Router MAC address. Used for precise location (with WiFi location database); rogue apps can track user movement",
+                    context.getString(R.string.usage_wifi_bssid),
                     InfoItem.CATEGORY_NETWORK,
                     InfoItem.LEVEL_DANGER
                 ));
 
                 items.add(new InfoItem(
-                    "WiFi Signal Strength",
+                    context.getString(R.string.info_wifi_signal),
                     wifiInfo.getRssi() + " dBm",
-                    "Signal strength. Used for indoor positioning, distance estimation from router; infers user position in building",
+                    context.getString(R.string.usage_wifi_signal),
                     InfoItem.CATEGORY_NETWORK,
                     InfoItem.LEVEL_INFO
                 ));
 
                 items.add(new InfoItem(
-                    "WiFi Frequency",
+                    context.getString(R.string.info_wifi_frequency),
                     wifiInfo.getFrequency() + " MHz",
-                    "WiFi frequency (2.4G/5G). Used to determine network environment quality; infers router type and usage scenario",
+                    context.getString(R.string.usage_wifi_frequency),
                     InfoItem.CATEGORY_NETWORK,
                     InfoItem.LEVEL_INFO
                 ));
@@ -349,9 +349,9 @@ public class DeviceInfoCollector {
 
         String networkType = getNetworkType();
         items.add(new InfoItem(
-            "Network Type",
+            context.getString(R.string.info_network_type),
             networkType,
-            "Network connection method. Used for content adaptation, traffic control; infers usage scenario (WiFi may mean at home/office)",
+            context.getString(R.string.usage_network_type),
             InfoItem.CATEGORY_NETWORK,
             InfoItem.LEVEL_INFO
         ));
@@ -363,17 +363,17 @@ public class DeviceInfoCollector {
             String networkCountryIso = tm.getNetworkCountryIso();
 
             items.add(new InfoItem(
-                "Network Operator",
+                context.getString(R.string.info_network_operator),
                 networkOperatorName != null ? networkOperatorName : "Unknown",
-                "Mobile network operator. Used for carrier partnerships; infers user's country/region",
+                context.getString(R.string.usage_network_operator),
                 InfoItem.CATEGORY_NETWORK,
                 InfoItem.LEVEL_INFO
             ));
 
             items.add(new InfoItem(
-                "Operator Country Code",
+                context.getString(R.string.info_network_operator_code),
                 networkCountryIso != null ? networkCountryIso.toUpperCase() : "Unknown",
-                "Operator's country. Infers user's country/region",
+                context.getString(R.string.usage_network_operator_code),
                 InfoItem.CATEGORY_NETWORK,
                 InfoItem.LEVEL_WARNING
             ));
@@ -382,9 +382,9 @@ public class DeviceInfoCollector {
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (bluetoothAdapter != null && bluetoothAdapter.isEnabled()) {
             items.add(new InfoItem(
-                "Bluetooth Status",
+                context.getString(R.string.info_bluetooth_status),
                 "Enabled",
-                "Bluetooth enabled status. Used for nearby device discovery; infers possible wearable device usage",
+                context.getString(R.string.usage_bluetooth_status),
                 InfoItem.CATEGORY_NETWORK,
                 InfoItem.LEVEL_INFO
             ));
@@ -401,17 +401,17 @@ public class DeviceInfoCollector {
         long internalAvailable = internalStats.getAvailableBlocksLong() * internalStats.getBlockSizeLong();
 
         items.add(new InfoItem(
-            "Internal Storage Total",
+            context.getString(R.string.info_internal_storage_total),
             formatSize(internalTotal),
-            "Device storage capacity. Used to determine device tier; infers user spending ability (large storage = premium device)",
+            context.getString(R.string.usage_internal_storage_total),
             InfoItem.CATEGORY_STORAGE,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Internal Storage Available",
+            context.getString(R.string.info_internal_storage_available),
             formatSize(internalAvailable) + " (" + (internalAvailable * 100 / internalTotal) + "%)",
-            "Available storage space. Infers user habits: full storage may mean heavy photo/download usage; empty storage may indicate new device",
+            context.getString(R.string.usage_internal_storage_available),
             InfoItem.CATEGORY_STORAGE,
             InfoItem.LEVEL_INFO
         ));
@@ -424,9 +424,9 @@ public class DeviceInfoCollector {
                 long externalAvailable = externalStats.getAvailableBlocksLong() * externalStats.getBlockSizeLong();
 
                 items.add(new InfoItem(
-                    "External Storage Total",
+                    context.getString(R.string.info_external_storage_total),
                     formatSize(externalTotal),
-                    "SD card capacity. Determines if expandable storage exists; infers user storage needs",
+                    context.getString(R.string.usage_external_storage_total),
                     InfoItem.CATEGORY_STORAGE,
                     InfoItem.LEVEL_INFO
                 ));
@@ -455,33 +455,33 @@ public class DeviceInfoCollector {
         double screenDiagonal = Math.sqrt(Math.pow(screenWidthInches, 2) + Math.pow(screenHeightInches, 2));
 
         items.add(new InfoItem(
-            "Screen Resolution",
+            context.getString(R.string.info_screen_resolution),
             width + " x " + height,
-            "Display resolution. Used for UI adaptation, image resource selection; infers device tier",
+            context.getString(R.string.usage_screen_resolution),
             InfoItem.CATEGORY_DISPLAY,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Screen Size",
+            context.getString(R.string.info_screen_size),
             String.format("%.1f inches", screenDiagonal),
-            "Physical screen size. Used to determine device type (phone/tablet); infers usage scenario",
+            context.getString(R.string.usage_screen_size),
             InfoItem.CATEGORY_DISPLAY,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Screen Density",
+            context.getString(R.string.info_screen_density),
             String.format("%.1f (%s)", density, getDensityName(density)),
-            "Pixel density. Used for resource selection, performance optimization; high density usually means premium device",
+            context.getString(R.string.usage_screen_density),
             InfoItem.CATEGORY_DISPLAY,
             InfoItem.LEVEL_INFO
         ));
 
         items.add(new InfoItem(
-            "Refresh Rate",
+            context.getString(R.string.info_refresh_rate),
             windowManager != null ? windowManager.getDefaultDisplay().getRefreshRate() + " Hz" : "Unknown",
-            "Screen refresh rate. High refresh rate = premium device; used for animation smoothness judgment",
+            context.getString(R.string.usage_refresh_rate),
             InfoItem.CATEGORY_DISPLAY,
             InfoItem.LEVEL_INFO
         ));
@@ -490,9 +490,9 @@ public class DeviceInfoCollector {
         String orientationStr = orientation == Configuration.ORIENTATION_PORTRAIT ? "Portrait" :
                                orientation == Configuration.ORIENTATION_LANDSCAPE ? "Landscape" : "Unknown";
         items.add(new InfoItem(
-            "Current Orientation",
+            context.getString(R.string.info_current_orientation),
             orientationStr,
-            "Current screen orientation. Used to determine user activity (landscape may indicate watching video/gaming)",
+            context.getString(R.string.usage_current_orientation),
             InfoItem.CATEGORY_DISPLAY,
             InfoItem.LEVEL_INFO
         ));
@@ -505,9 +505,9 @@ public class DeviceInfoCollector {
 
         float fontScale = context.getResources().getConfiguration().fontScale;
         items.add(new InfoItem(
-            "Font Scale",
+            context.getString(R.string.info_font_scale),
             String.format("%.1fx", fontScale),
-            "User font preference. Greater than 1.0 may indicate visually impaired or older users; used for UI adaptation",
+            context.getString(R.string.usage_font_scale),
             InfoItem.CATEGORY_APP,
             InfoItem.LEVEL_INFO
         ));
@@ -519,9 +519,9 @@ public class DeviceInfoCollector {
                 1.0f
             );
             items.add(new InfoItem(
-                "Animation Scale",
+                context.getString(R.string.info_animation_scale),
                 String.format("%.1fx", animationScale),
-                "Animation speed setting. 0 means animations disabled, possibly developer or performance-focused user",
+                context.getString(R.string.usage_animation_scale),
                 InfoItem.CATEGORY_APP,
                 InfoItem.LEVEL_INFO
             ));
@@ -534,9 +534,9 @@ public class DeviceInfoCollector {
                 30000
             );
             items.add(new InfoItem(
-                "Screen Timeout",
+                context.getString(R.string.info_screen_timeout),
                 (screenOffTimeout / 1000) + " seconds",
-                "Auto lock time. Infers user habits: long time = frequent phone use; short time = power saving mode",
+                context.getString(R.string.usage_screen_timeout),
                 InfoItem.CATEGORY_APP,
                 InfoItem.LEVEL_INFO
             ));
@@ -549,9 +549,9 @@ public class DeviceInfoCollector {
                             ringerMode == AudioManager.RINGER_MODE_SILENT ? "Silent" :
                             ringerMode == AudioManager.RINGER_MODE_VIBRATE ? "Vibrate" : "Unknown";
             items.add(new InfoItem(
-                "Ringer Mode",
+                context.getString(R.string.info_ringer_mode),
                 modeStr,
-                "Sound mode. Infers current scenario: silent may indicate meeting/sleep; vibrate may indicate public place",
+                context.getString(R.string.usage_ringer_mode),
                 InfoItem.CATEGORY_APP,
                 InfoItem.LEVEL_INFO
             ));
@@ -563,9 +563,9 @@ public class DeviceInfoCollector {
                 Settings.System.SCREEN_BRIGHTNESS_MODE
             );
             items.add(new InfoItem(
-                "Brightness Mode",
+                context.getString(R.string.info_brightness_mode),
                 brightnessMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC ? "Auto" : "Manual",
-                "Brightness adjustment method. Auto brightness may indicate convenience-focused user; manual may indicate precise control preference",
+                context.getString(R.string.usage_brightness_mode),
                 InfoItem.CATEGORY_APP,
                 InfoItem.LEVEL_INFO
             ));
@@ -577,9 +577,9 @@ public class DeviceInfoCollector {
             String nightModeStr = nightMode == UiModeManager.MODE_NIGHT_YES ? "On" :
                                  nightMode == UiModeManager.MODE_NIGHT_NO ? "Off" : "Auto";
             items.add(new InfoItem(
-                "Dark Mode",
+                context.getString(R.string.info_dark_mode),
                 nightModeStr,
-                "Dark mode status. Enabled may indicate night use or dark theme preference",
+                context.getString(R.string.usage_dark_mode),
                 InfoItem.CATEGORY_APP,
                 InfoItem.LEVEL_INFO
             ));
@@ -595,9 +595,9 @@ public class DeviceInfoCollector {
         List<ApplicationInfo> installedApps = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
         items.add(new InfoItem(
-            "Installed Apps Count",
+            context.getString(R.string.info_installed_apps_count),
             String.valueOf(installedApps.size()),
-            "App installation count. Infers user type: many apps = heavy user; few apps = light user or new device",
+            context.getString(R.string.usage_installed_apps_count),
             InfoItem.CATEGORY_APP,
             InfoItem.LEVEL_INFO
         ));
@@ -607,9 +607,9 @@ public class DeviceInfoCollector {
         if (resolveInfo != null && resolveInfo.activityInfo != null) {
             String browserName = resolveInfo.activityInfo.applicationInfo.loadLabel(pm).toString();
             items.add(new InfoItem(
-                "Default Browser",
+                context.getString(R.string.info_default_browser),
                 browserName,
-                "Browser preference. Used to identify user group characteristics; some browsers have specific user profiles",
+                context.getString(R.string.usage_default_browser),
                 InfoItem.CATEGORY_APP,
                 InfoItem.LEVEL_INFO
             ));
@@ -621,9 +621,9 @@ public class DeviceInfoCollector {
         if (launcherInfo != null && launcherInfo.activityInfo != null) {
             String launcherName = launcherInfo.activityInfo.applicationInfo.loadLabel(pm).toString();
             items.add(new InfoItem(
-                "Default Launcher",
+                context.getString(R.string.info_default_launcher),
                 launcherName,
-                "Home launcher. Third-party launcher indicates customization preference; infers technical ability",
+                context.getString(R.string.usage_default_launcher),
                 InfoItem.CATEGORY_APP,
                 InfoItem.LEVEL_INFO
             ));
@@ -631,9 +631,9 @@ public class DeviceInfoCollector {
 
         String userAgent = System.getProperty("http.agent");
         items.add(new InfoItem(
-            "System User Agent",
+            context.getString(R.string.info_system_user_agent),
             userAgent != null ? userAgent : "Unknown",
-            "Browser identification string. Contains device model, system version, browser version; used by servers to identify devices",
+            context.getString(R.string.usage_system_user_agent),
             InfoItem.CATEGORY_APP,
             InfoItem.LEVEL_WARNING
         ));
@@ -646,27 +646,27 @@ public class DeviceInfoCollector {
 
         long uptimeMillis = SystemClock.elapsedRealtime();
         items.add(new InfoItem(
-            "System Runtime",
+            context.getString(R.string.info_system_runtime),
             formatUptime(uptimeMillis),
-            "Device running duration. Short time = just powered on/restarted; long time = stable operation",
+            context.getString(R.string.usage_system_runtime),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
 
         boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
         items.add(new InfoItem(
-            "Time Format",
+            context.getString(R.string.info_time_format),
             is24Hour ? "24-hour" : "12-hour",
-            "Time display preference. 24-hour mostly used in Europe/Asia; 12-hour mostly used in US",
+            context.getString(R.string.usage_time_format),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         items.add(new InfoItem(
-            "Current Time",
+            context.getString(R.string.info_current_time),
             sdf.format(new Date()),
-            "Device current time. Used to determine user active hours; combined with timezone can infer approximate location",
+            context.getString(R.string.usage_current_time),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
@@ -676,9 +676,9 @@ public class DeviceInfoCollector {
             Settings.System.DATE_FORMAT
         );
         items.add(new InfoItem(
-            "Date Format",
+            context.getString(R.string.info_date_format),
             dateFormat != null ? dateFormat : "System Default",
-            "Date display format. Different regions have different preferences; helps determine user's region",
+            context.getString(R.string.usage_date_format),
             InfoItem.CATEGORY_SYSTEM,
             InfoItem.LEVEL_INFO
         ));
@@ -761,9 +761,9 @@ public class DeviceInfoCollector {
             List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
 
             items.add(new InfoItem(
-                "Sensor Count",
+                context.getString(R.string.info_sensor_count),
                 String.valueOf(sensors.size()),
-                "Total device sensors. More sensors mean more data collection capability; some sensors can be used for user behavior tracking",
+                context.getString(R.string.usage_sensor_count),
                 InfoItem.CATEGORY_SENSOR,
                 InfoItem.LEVEL_INFO
             ));
@@ -802,9 +802,9 @@ public class DeviceInfoCollector {
 
             if (hasAccelerometer) {
                 items.add(new InfoItem(
-                    "Accelerometer",
+                    context.getString(R.string.info_accelerometer),
                     "Supported",
-                    "Detects device motion. Used for step counting, gesture recognition, user behavior analysis; commonly used in games and fitness apps",
+                    context.getString(R.string.usage_accelerometer),
                     InfoItem.CATEGORY_SENSOR,
                     InfoItem.LEVEL_INFO
                 ));
@@ -812,9 +812,9 @@ public class DeviceInfoCollector {
 
             if (hasGyroscope) {
                 items.add(new InfoItem(
-                    "Gyroscope",
+                    context.getString(R.string.info_gyroscope),
                     "Supported",
-                    "Detects device rotation. Used in AR/VR applications, precise motion tracking; can infer user activity type",
+                    context.getString(R.string.usage_gyroscope),
                     InfoItem.CATEGORY_SENSOR,
                     InfoItem.LEVEL_INFO
                 ));
@@ -822,9 +822,9 @@ public class DeviceInfoCollector {
 
             if (hasMagnetic) {
                 items.add(new InfoItem(
-                    "Magnetic Sensor",
+                    context.getString(R.string.info_magnetic_sensor),
                     "Supported",
-                    "Detects magnetic field. Used for electronic compass, positioning assistance; can infer user orientation and position",
+                    context.getString(R.string.usage_magnetic_sensor),
                     InfoItem.CATEGORY_SENSOR,
                     InfoItem.LEVEL_INFO
                 ));
@@ -832,9 +832,9 @@ public class DeviceInfoCollector {
 
             if (hasLight) {
                 items.add(new InfoItem(
-                    "Light Sensor",
+                    context.getString(R.string.info_light_sensor),
                     "Supported",
-                    "Detects ambient light intensity. Used for auto brightness adjustment; can infer user environment (indoor/outdoor)",
+                    context.getString(R.string.usage_light_sensor),
                     InfoItem.CATEGORY_SENSOR,
                     InfoItem.LEVEL_WARNING
                 ));
@@ -842,9 +842,9 @@ public class DeviceInfoCollector {
 
             if (hasProximity) {
                 items.add(new InfoItem(
-                    "Proximity Sensor",
+                    context.getString(R.string.info_proximity_sensor),
                     "Supported",
-                    "Detects object distance. Used to turn off screen during calls; can infer user habits and scenarios",
+                    context.getString(R.string.usage_proximity_sensor),
                     InfoItem.CATEGORY_SENSOR,
                     InfoItem.LEVEL_INFO
                 ));
@@ -852,18 +852,18 @@ public class DeviceInfoCollector {
 
             if (hasStepCounter) {
                 items.add(new InfoItem(
-                    "Step Counter",
+                    context.getString(R.string.info_step_counter),
                     "Supported",
-                    "Counts steps. Used for health tracking; can infer user exercise amount and lifestyle",
+                    context.getString(R.string.usage_step_counter),
                     InfoItem.CATEGORY_SENSOR,
                     InfoItem.LEVEL_WARNING
                 ));
             }
 
             items.add(new InfoItem(
-                "All Sensors List",
+                context.getString(R.string.info_all_sensors_list),
                 sensorTypes.length() > 0 ? sensorTypes.substring(0, sensorTypes.length() - 2) : "None",
-                "All sensors supported by device. Used for app feature adaptation; rogue apps can leverage sensor data for user behavior analysis and tracking",
+                context.getString(R.string.usage_all_sensors_list),
                 InfoItem.CATEGORY_SENSOR,
                 InfoItem.LEVEL_INFO
             ));
@@ -877,54 +877,54 @@ public class DeviceInfoCollector {
 
         boolean isRooted = checkRooted();
         items.add(new InfoItem(
-            "Root Status",
+            context.getString(R.string.info_root_status),
             isRooted ? "Rooted" : "Not Rooted",
-            isRooted ? "Rooting reduces system security, may allow malicious apps to gain higher privileges; some banking apps may refuse to run" : "System in normal security state",
+            isRooted ? context.getString(R.string.usage_root_status) : "System in normal security state",
             InfoItem.CATEGORY_SECURITY,
             isRooted ? InfoItem.LEVEL_DANGER : InfoItem.LEVEL_INFO
         ));
 
         boolean isDebuggable = (0 != (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
         items.add(new InfoItem(
-            "Debug Mode",
+            context.getString(R.string.info_debug_mode),
             isDebuggable ? "Enabled" : "Disabled",
-            isDebuggable ? "Debug mode may allow app data to be obtained by debug tools; should be disabled in production" : "Normal release state",
+            isDebuggable ? context.getString(R.string.usage_debug_mode) : "Normal release state",
             InfoItem.CATEGORY_SECURITY,
             isDebuggable ? InfoItem.LEVEL_WARNING : InfoItem.LEVEL_INFO
         ));
 
         String selinuxStatus = getSELinuxStatus();
         items.add(new InfoItem(
-            "SELinux Status",
+            context.getString(R.string.info_selinux_status),
             selinuxStatus,
-            "SELinux is Security-Enhanced Linux. Enforcing mode provides strongest security protection; Permissive mode reduces security",
+            context.getString(R.string.usage_selinux_status),
             InfoItem.CATEGORY_SECURITY,
             "Enforcing".equals(selinuxStatus) ? InfoItem.LEVEL_INFO : InfoItem.LEVEL_WARNING
         ));
 
         boolean adbEnabled = isAdbEnabled();
         items.add(new InfoItem(
-            "ADB Debugging",
+            context.getString(R.string.info_adb_debugging),
             adbEnabled ? "Enabled" : "Disabled",
-            adbEnabled ? "ADB debugging allows computer to directly access device; may be maliciously exploited to gain device control" : "Normal security state",
+            adbEnabled ? context.getString(R.string.usage_adb_debugging) : "Normal security state",
             InfoItem.CATEGORY_SECURITY,
             adbEnabled ? InfoItem.LEVEL_WARNING : InfoItem.LEVEL_INFO
         ));
 
         boolean isSigned = isAppSigned();
         items.add(new InfoItem(
-            "App Signature",
+            context.getString(R.string.info_app_signature),
             isSigned ? "Signed" : "Not Signed",
-            isSigned ? "App has passed digital signature verification, integrity guaranteed" : "Unsigned apps may be tampered with; security risk exists",
+            isSigned ? context.getString(R.string.usage_app_signature) : "Unsigned apps may be tampered with; security risk exists",
             InfoItem.CATEGORY_SECURITY,
             isSigned ? InfoItem.LEVEL_INFO : InfoItem.LEVEL_DANGER
         ));
 
         boolean isSystemIntegrityOk = checkSystemIntegrity();
         items.add(new InfoItem(
-            "System Integrity",
+            context.getString(R.string.info_system_integrity),
             isSystemIntegrityOk ? "Normal" : "May be Tampered",
-            isSystemIntegrityOk ? "System file integrity is good, not tampered" : "System files may be maliciously modified; suggest checking device",
+            isSystemIntegrityOk ? context.getString(R.string.usage_system_integrity) : "System files may be maliciously modified; suggest checking device",
             InfoItem.CATEGORY_SECURITY,
             isSystemIntegrityOk ? InfoItem.LEVEL_INFO : InfoItem.LEVEL_DANGER
         ));
@@ -999,14 +999,14 @@ public class DeviceInfoCollector {
     }
 
     public static class InfoItem {
-        public static final String CATEGORY_DEVICE = "Device Hardware";
-        public static final String CATEGORY_SYSTEM = "System Info";
-        public static final String CATEGORY_NETWORK = "Network Info";
-        public static final String CATEGORY_STORAGE = "Storage Info";
-        public static final String CATEGORY_DISPLAY = "Display Info";
-        public static final String CATEGORY_APP = "App Environment";
-        public static final String CATEGORY_SENSOR = "Sensors";
-        public static final String CATEGORY_SECURITY = "Security Status";
+        public static final String CATEGORY_DEVICE = "category_device";
+        public static final String CATEGORY_SYSTEM = "category_system";
+        public static final String CATEGORY_NETWORK = "category_network";
+        public static final String CATEGORY_STORAGE = "category_storage";
+        public static final String CATEGORY_DISPLAY = "category_display";
+        public static final String CATEGORY_APP = "category_app";
+        public static final String CATEGORY_SENSOR = "category_sensor";
+        public static final String CATEGORY_SECURITY = "category_security";
 
         public static final String LEVEL_INFO = "info";
         public static final String LEVEL_WARNING = "warning";

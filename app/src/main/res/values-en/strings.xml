@@ -204,4 +204,239 @@
     <string name="perm_activity_stat_denied">Denied</string>
     <string name="perm_activity_warning_title">⚠️ Privacy Risk Warning</string>
     <string name="perm_activity_back">Back</string>
+
+    <!-- About Page -->
+    <string name="about_intro_content">This app helps users understand what device information mobile applications can access WITHOUT any permissions.
+
+By transparently displaying this information, we aim to raise users\' privacy awareness and help them understand how their data is collected and used.</string>
+
+    <string name="about_features_content">• **Information Transparency**: Displays 55+ device info items including hardware, system, network, sensors, and security status
+
+• **Permission Display**: Shows 24 permission items with detailed descriptions of purposes and risks after authorization
+
+• **Risk Identification**: Three risk levels (Low/Medium/High) to help quickly identify sensitive information
+
+• **Usage Explanation**: Detailed explanation of potential uses and risks for each info item
+
+• **Local Processing**: All data is processed locally only, no information is uploaded
+
+• **Zero Permissions**: No sensitive permissions requested, protecting user privacy</string>
+
+    <string name="about_privacy_content">• **Zero Data Upload**: This app does not send data to any server
+
+• **Local Analysis**: All information collection and display are done locally on the device
+
+• **No Permission Requests**: Only uses normal permissions allowed by the system (network status, WiFi status)
+
+• **Open Source**: App code is fully open source, security can be verified independently</string>
+
+    <string name="about_tech_content">**Why can apps access this information?**
+
+Android provides various system APIs that can be accessed without special permissions. These APIs were originally designed to help apps better adapt to devices and provide personalized services.
+
+**Information Usage Examples:**
+
+• Advertisers: Use device model + Android ID for targeted advertising
+
+• Rogue apps: Infer user location and behavior patterns through WiFi information, steal privacy data
+
+• Security research: Detect device security status and system vulnerabilities</string>
+
+    <string name="about_suggestions_content">**Protection Tips:**
+
+• Regularly check permissions of all apps on your phone
+
+• Be cautious when granting sensitive permissions
+
+• Use privacy protection tools
+
+• Review app permissions before installation
+
+• Disable unnecessary permissions for installed apps
+
+• Keep your device system up to date</string>
+
+    <!-- Device Info Names -->
+    <string name="info_device_brand">Device Brand</string>
+    <string name="info_device_model">Device Model</string>
+    <string name="info_device_codename">Device Codename</string>
+    <string name="info_product_name">Product Name</string>
+    <string name="info_hardware_platform">Hardware Platform</string>
+    <string name="info_total_memory">Total Memory</string>
+    <string name="info_available_memory">Available Memory</string>
+    <string name="info_battery_level">Battery Level</string>
+    <string name="info_charging_method">Charging Method</string>
+    <string name="info_android_version">Android Version</string>
+    <string name="info_baseband_version">Baseband Version</string>
+    <string name="info_kernel_version">Kernel Version</string>
+    <string name="info_build_fingerprint">Build Fingerprint</string>
+    <string name="info_bootloader_version">Bootloader Version</string>
+    <string name="info_system_uptime">System Uptime</string>
+    <string name="info_system_language">System Language</string>
+    <string name="info_system_region">System Region</string>
+    <string name="info_network_type">Network Type</string>
+    <string name="info_network_operator">Network Operator</string>
+    <string name="info_bluetooth_status">Bluetooth Status</string>
+    <string name="info_screen_resolution">Screen Resolution</string>
+    <string name="info_screen_size">Screen Size</string>
+    <string name="info_screen_density">Screen Density</string>
+    <string name="info_refresh_rate">Refresh Rate</string>
+    <string name="info_current_orientation">Current Orientation</string>
+    <string name="info_font_scale">Font Scale</string>
+    <string name="info_animation_scale">Animation Scale</string>
+    <string name="info_screen_timeout">Screen Timeout</string>
+    <string name="info_ringer_mode">Ringer Mode</string>
+    <string name="info_brightness_mode">Brightness Mode</string>
+    <string name="info_dark_mode">Dark Mode</string>
+    <string name="info_default_browser">Default Browser</string>
+    <string name="info_default_launcher">Default Launcher</string>
+    <string name="info_system_runtime">System Runtime</string>
+    <string name="info_time_format">Time Format</string>
+    <string name="info_current_time">Current Time</string>
+    <string name="info_date_format">Date Format</string>
+    <string name="info_sensor_count">Sensor Count</string>
+    <string name="info_root_status">Root Status</string>
+    <string name="info_debug_mode">Debug Mode</string>
+    <string name="info_app_signature">App Signature</string>
+    <string name="info_system_integrity">System Integrity</string>
+    <string name="info_memory_info">Memory Info</string>
+    <string name="info_battery_info">Battery Info</string>
+    <string name="info_version_info">Version Info</string>
+    <string name="info_location_settings">Location Settings</string>
+    <string name="info_locale_settings">Locale Settings</string>
+    <string name="info_wifi_info">WiFi Info</string>
+    <string name="info_bluetooth_info">Bluetooth Info</string>
+    <string name="info_storage_info">Storage Info</string>
+    <string name="info_display_settings">Display Settings</string>
+    <string name="info_sound_settings">Sound Settings</string>
+    <string name="info_app_settings">App Settings</string>
+    <string name="info_time_settings">Time Settings</string>
+    <string name="info_security_settings">Security Settings</string>
+
+    <!-- Device Info Values -->
+    <string name="value_charging">Charging</string>
+    <string name="value_full">Full</string>
+    <string name="value_discharging">Discharging</string>
+    <string name="value_ac">AC</string>
+    <string name="value_usb">USB</string>
+    <string name="value_wireless">Wireless</string>
+    <string name="value_not_connected">Not Connected</string>
+    <string name="value_portrait">Portrait</string>
+    <string name="value_landscape">Landscape</string>
+    <string name="value_normal">Normal</string>
+    <string name="value_silent">Silent</string>
+    <string name="value_vibrate">Vibrate</string>
+    <string name="value_auto">Auto</string>
+    <string name="value_manual">Manual</string>
+    <string name="value_on">On</string>
+    <string name="value_off">Off</string>
+    <string name="value_24_hour">24-hour</string>
+    <string name="value_12_hour">12-hour</string>
+    <string name="value_system_default">System Default</string>
+    <string name="value_rooted">Rooted</string>
+    <string name="value_not_rooted">Not Rooted</string>
+    <string name="value_signed">Signed</string>
+    <string name="value_not_signed">Not Signed</string>
+    <string name="value_enabled">Enabled</string>
+    <string name="value_disabled">Disabled</string>
+    <string name="value_secure">Secure</string>
+    <string name="value_insecure">Insecure</string>
+
+    <!-- Device Info Usage Descriptions -->
+    <string name="info_android_id">Device ID</string>
+    <string name="info_cpu_cores">CPU Cores</string>
+    <string name="info_cpu_arch">CPU Architecture</string>
+    <string name="info_sdk_version">SDK Version</string>
+    <string name="info_security_patch">Security Patch Level</string>
+    <string name="info_timezone">Timezone</string>
+    <string name="info_ip_address">IP Address</string>
+    <string name="info_wifi_ssid">WiFi Name</string>
+    <string name="info_wifi_bssid">WiFi BSSID</string>
+    <string name="info_wifi_signal">WiFi Signal Strength</string>
+    <string name="info_wifi_frequency">WiFi Frequency</string>
+    <string name="info_network_operator_code">Operator Country Code</string>
+    <string name="info_internal_storage_total">Internal Storage Total</string>
+    <string name="info_internal_storage_available">Internal Storage Available</string>
+    <string name="info_external_storage_total">External Storage Total</string>
+    <string name="info_installed_apps_count">Installed Apps Count</string>
+    <string name="info_system_user_agent">System User Agent</string>
+    <string name="info_accelerometer">Accelerometer</string>
+    <string name="info_gyroscope">Gyroscope</string>
+    <string name="info_magnetic_sensor">Magnetic Sensor</string>
+    <string name="info_light_sensor">Light Sensor</string>
+    <string name="info_proximity_sensor">Proximity Sensor</string>
+    <string name="info_step_counter">Step Counter</string>
+    <string name="info_all_sensors_list">All Sensors List</string>
+    <string name="info_selinux_status">SELinux Status</string>
+    <string name="info_adb_debugging">ADB Debugging</string>
+
+    <!-- Usage Descriptions (English) -->
+    <string name="usage_device_brand">Device manufacturer identifier. Used by advertisers for device classification and market analysis; rogue apps may exploit specific model vulnerabilities</string>
+    <string name="usage_device_model">Exact device model. Used for device value assessment, spending power profiling; some old models have known vulnerabilities</string>
+    <string name="usage_device_codename">Internal device codename. Used for precise device identification; attackers may search for specific device vulnerabilities</string>
+    <string name="usage_product_name">Commercial product name. Used for market segmentation and user group analysis</string>
+    <string name="usage_hardware_platform">Underlying hardware identifier. Used for performance optimization and driver compatibility analysis</string>
+    <string name="usage_android_id">Core privacy data! Used for cross-app user tracking, ad attribution, and account association. Only changes after factory reset</string>
+    <string name="usage_cpu_cores">Computational capability assessment. Used to determine device performance level, game compatibility; infers user spending level</string>
+    <string name="usage_cpu_arch">Processor architecture. Used to select correct malicious code version; determines security feature support; rogue apps may target specific architectures</string>
+    <string name="usage_total_memory">Device memory capacity. Used for performance grading, app recommendation; infers device price range and user spending ability</string>
+    <string name="usage_available_memory">Current available memory. Used to determine device load status; infers user habits (multi-tasking or not)</string>
+    <string name="usage_battery_level">Battery status. Used to infer usage scenarios (charging may mean at home/office); advertisers use for push timing</string>
+    <string name="usage_charging_method">Charging type. Infers user location: USB may indicate at computer, AC may indicate at home or office</string>
+    <string name="usage_android_version">System version. Used for compatibility checking, feature limitation; old versions may have known security vulnerabilities; rogue apps may exploit old version vulnerabilities</string>
+    <string name="usage_sdk_version">API level. Precisely determines available features and security; low SDK means missing new security mechanisms</string>
+    <string name="usage_security_patch">Important security indicator! Determines if device has fixed known vulnerabilities. Rogue apps may exploit unfixed vulnerabilities</string>
+    <string name="usage_baseband_version">Communication module version. Specific versions may have baseband vulnerabilities that can be remotely exploited</string>
+    <string name="usage_kernel_version">Linux kernel version. Used to determine kernel vulnerability availability; old kernels may have privilege escalation vulnerabilities; rogue apps may exploit kernel vulnerabilities for higher permissions</string>
+    <string name="usage_build_fingerprint">Complete system build identifier. Used for precise system source identification, determining if official ROM; traces system tampering history</string>
+    <string name="usage_bootloader_version">Bootloader version. Determines if device can be unlocked, if rooted</string>
+    <string name="usage_system_uptime">Device running duration. Infers user habits: short time may mean just powered on, long time may mean rare restarts</string>
+    <string name="usage_system_language">User language preference. Used for content recommendation, regional services; infers possible nationality or residence</string>
+    <string name="usage_system_region">Country/region code. Used for regional restrictions, content moderation; infers user\'s country</string>
+    <string name="usage_timezone">Important location inference basis! Combined with other info can infer approximate user location</string>
+    <string name="usage_ip_address">Network location identifier! Can be geolocated to city level via IP database; used for regional restrictions and risk control</string>
+    <string name="usage_wifi_ssid">Important privacy data! Can infer user location type (home/office/mall/hotel); used for location fingerprinting</string>
+    <string name="usage_wifi_bssid">Router MAC address. Used for precise location (with WiFi location database); rogue apps can track user movement</string>
+    <string name="usage_wifi_signal">Signal strength. Used for indoor positioning, distance estimation from router; infers user position in building</string>
+    <string name="usage_wifi_frequency">WiFi frequency (2.4G/5G). Used to determine network environment quality; infers router type and usage scenario</string>
+    <string name="usage_network_type">Network connection method. Used for content adaptation, traffic control; infers usage scenario (WiFi may mean at home/office)</string>
+    <string name="usage_network_operator">Mobile network operator. Used for carrier partnerships; infers user\'s country/region</string>
+    <string name="usage_network_operator_code">Operator\'s country. Infers user\'s country/region</string>
+    <string name="usage_bluetooth_status">Bluetooth enabled status. Used for nearby device discovery; infers possible wearable device usage</string>
+    <string name="usage_internal_storage_total">Device storage capacity. Used to determine device tier; infers user spending ability (large storage = premium device)</string>
+    <string name="usage_internal_storage_available">Available storage space. Infers user habits: full storage may mean heavy photo/download usage; empty storage may indicate new device</string>
+    <string name="usage_external_storage_total">SD card capacity. Determines if expandable storage exists; infers user storage needs</string>
+    <string name="usage_screen_resolution">Display resolution. Used for UI adaptation, image resource selection; infers device tier</string>
+    <string name="usage_screen_size">Physical screen size. Used to determine device type (phone/tablet); infers usage scenario</string>
+    <string name="usage_screen_density">Pixel density. Used for resource selection, performance optimization; high density usually means premium device</string>
+    <string name="usage_refresh_rate">Screen refresh rate. High refresh rate = premium device; used for animation smoothness judgment</string>
+    <string name="usage_current_orientation">Current screen orientation. Used to determine user activity (landscape may indicate watching video/gaming)</string>
+    <string name="usage_font_scale">User font preference. Greater than 1.0 may indicate visually impaired or older users; used for UI adaptation</string>
+    <string name="usage_animation_scale">Animation speed setting. 0 means animations disabled, possibly developer or performance-focused user</string>
+    <string name="usage_screen_timeout">Auto lock time. Infers user habits: long time = frequent phone use; short time = power saving mode</string>
+    <string name="usage_ringer_mode">Sound mode. Infers current scenario: silent may indicate meeting/sleep; vibrate may indicate public place</string>
+    <string name="usage_brightness_mode">Brightness adjustment method. Auto brightness may indicate convenience-focused user; manual may indicate precise control preference</string>
+    <string name="usage_dark_mode">Dark mode status. Enabled may indicate night use or dark theme preference</string>
+    <string name="usage_installed_apps_count">App installation count. Infers user type: many apps = heavy user; few apps = light user or new device</string>
+    <string name="usage_default_browser">Browser preference. Used to identify user group characteristics; some browsers have specific user profiles</string>
+    <string name="usage_default_launcher">Home launcher. Third-party launcher indicates customization preference; infers technical ability</string>
+    <string name="usage_system_user_agent">Browser identification string. Contains device model, system version, browser version; used by servers to identify devices</string>
+    <string name="usage_system_runtime">Device running duration. Short time = just powered on/restarted; long time = stable operation</string>
+    <string name="usage_time_format">Time display preference. 24-hour mostly used in Europe/Asia; 12-hour mostly used in US</string>
+    <string name="usage_current_time">Device current time. Used to determine user active hours; combined with timezone can infer approximate location</string>
+    <string name="usage_date_format">Date display format. Different regions have different preferences; helps determine user\'s region</string>
+    <string name="usage_sensor_count">Total device sensors. More sensors mean more data collection capability; some sensors can be used for user behavior tracking</string>
+    <string name="usage_accelerometer">Detects device motion. Used for step counting, gesture recognition, user behavior analysis; commonly used in games and fitness apps</string>
+    <string name="usage_gyroscope">Detects device rotation. Used in AR/VR applications, precise motion tracking; can infer user activity type</string>
+    <string name="usage_magnetic_sensor">Detects magnetic field. Used for electronic compass, positioning assistance; can infer user orientation and position</string>
+    <string name="usage_light_sensor">Detects ambient light intensity. Used for auto brightness adjustment; can infer user environment (indoor/outdoor)</string>
+    <string name="usage_proximity_sensor">Detects object distance. Used to turn off screen during calls; can infer user habits and scenarios</string>
+    <string name="usage_step_counter">Counts steps. Used for health tracking; can infer user exercise amount and lifestyle</string>
+    <string name="usage_all_sensors_list">All sensors supported by device. Used for app feature adaptation; rogue apps can leverage sensor data for user behavior analysis and tracking</string>
+    <string name="usage_root_status">Rooting reduces system security, may allow malicious apps to gain higher privileges; some banking apps may refuse to run</string>
+    <string name="usage_debug_mode">Debug mode may allow app data to be obtained by debug tools; should be disabled in production</string>
+    <string name="usage_selinux_status">SELinux is Security-Enhanced Linux. Enforcing mode provides strongest security protection; Permissive mode reduces security</string>
+    <string name="usage_adb_debugging">ADB debugging allows computer to directly access device; may be maliciously exploited to gain device control</string>
+    <string name="usage_app_signature">App has passed digital signature verification, integrity guaranteed</string>
+    <string name="usage_system_integrity">System file integrity is good, not tampered</string>
 </resources>

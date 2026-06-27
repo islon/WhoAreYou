@@ -191,4 +191,239 @@
     <string name="perm_activity_stat_denied">未授权</string>
     <string name="perm_activity_warning_title">⚠️ 隐私风险提示</string>
     <string name="perm_activity_back">返回</string>
+
+    <!-- About Page -->
+    <string name="about_intro_content">本应用帮助用户了解移动应用可以在无需任何权限的情况下访问哪些设备信息。
+
+通过透明展示这些信息，我们希望提高用户的隐私保护意识，帮助他们了解数据是如何被收集和使用的。</string>
+
+    <string name="about_features_content">• 信息透明：展示55+项设备信息，包括硬件、系统、网络、传感器和安全状态
+
+• 权限展示：展示24项权限项目，详细说明授权后的用途和风险
+
+• 风险识别：三级风险等级（低/中/高），帮助快速识别敏感信息
+
+• 使用说明：详细说明每个信息项目的潜在用途和风险
+
+• 本地处理：所有数据仅在本地处理，不上传任何信息
+
+• 零权限：不请求任何敏感权限，保护用户隐私</string>
+
+    <string name="about_privacy_content">• 零数据上传：本应用不会向任何服务器发送数据
+
+• 本地分析：所有信息收集和展示都在设备本地完成
+
+• 不请求权限：仅使用系统允许的常规权限（网络状态、WiFi状态）
+
+• 开源代码：应用代码完全开源，可独立验证安全性</string>
+
+    <string name="about_tech_content">为什么应用可以访问这些信息？
+
+Android提供了多种无需特殊权限即可访问的系统API。这些API原本是为了帮助应用更好地适配设备、提供个性化服务而设计的。
+
+信息使用示例：
+
+• 广告商：使用设备型号+Android ID进行精准广告投放
+
+• 流氓应用：通过WiFi信息推断用户位置和行为模式，窃取隐私数据
+
+• 安全研究：检测设备安全状态和系统漏洞</string>
+
+    <string name="about_suggestions_content">保护建议：
+
+• 定期检查手机上所有应用的权限
+
+• 谨慎授予敏感权限
+
+• 使用隐私保护工具
+
+• 安装前审查应用权限
+
+• 禁用已安装应用的不必要权限
+
+• 保持设备系统更新</string>
+
+    <!-- Device Info Names -->
+    <string name="info_device_brand">设备品牌</string>
+    <string name="info_device_model">设备型号</string>
+    <string name="info_device_codename">设备代号</string>
+    <string name="info_product_name">产品名称</string>
+    <string name="info_hardware_platform">硬件平台</string>
+    <string name="info_total_memory">总内存</string>
+    <string name="info_available_memory">可用内存</string>
+    <string name="info_battery_level">电池电量</string>
+    <string name="info_charging_method">充电方式</string>
+    <string name="info_android_version">Android版本</string>
+    <string name="info_baseband_version">基带版本</string>
+    <string name="info_kernel_version">内核版本</string>
+    <string name="info_build_fingerprint">构建指纹</string>
+    <string name="info_bootloader_version">引导版本</string>
+    <string name="info_system_uptime">系统运行时间</string>
+    <string name="info_system_language">系统语言</string>
+    <string name="info_system_region">系统地区</string>
+    <string name="info_network_type">网络类型</string>
+    <string name="info_network_operator">运营商</string>
+    <string name="info_bluetooth_status">蓝牙状态</string>
+    <string name="info_screen_resolution">屏幕分辨率</string>
+    <string name="info_screen_size">屏幕尺寸</string>
+    <string name="info_screen_density">屏幕密度</string>
+    <string name="info_refresh_rate">刷新率</string>
+    <string name="info_current_orientation">当前方向</string>
+    <string name="info_font_scale">字体缩放</string>
+    <string name="info_animation_scale">动画缩放</string>
+    <string name="info_screen_timeout">屏幕超时</string>
+    <string name="info_ringer_mode">铃声模式</string>
+    <string name="info_brightness_mode">亮度模式</string>
+    <string name="info_dark_mode">深色模式</string>
+    <string name="info_default_browser">默认浏览器</string>
+    <string name="info_default_launcher">默认启动器</string>
+    <string name="info_system_runtime">系统运行时长</string>
+    <string name="info_time_format">时间格式</string>
+    <string name="info_current_time">当前时间</string>
+    <string name="info_date_format">日期格式</string>
+    <string name="info_sensor_count">传感器数量</string>
+    <string name="info_root_status">Root状态</string>
+    <string name="info_debug_mode">调试模式</string>
+    <string name="info_app_signature">应用签名</string>
+    <string name="info_system_integrity">系统完整性</string>
+    <string name="info_memory_info">内存信息</string>
+    <string name="info_battery_info">电池信息</string>
+    <string name="info_version_info">版本信息</string>
+    <string name="info_location_settings">定位设置</string>
+    <string name="info_locale_settings">区域设置</string>
+    <string name="info_wifi_info">WiFi信息</string>
+    <string name="info_bluetooth_info">蓝牙信息</string>
+    <string name="info_storage_info">存储信息</string>
+    <string name="info_display_settings">显示设置</string>
+    <string name="info_sound_settings">声音设置</string>
+    <string name="info_app_settings">应用设置</string>
+    <string name="info_time_settings">时间设置</string>
+    <string name="info_security_settings">安全设置</string>
+
+    <!-- Device Info Values -->
+    <string name="value_charging">充电中</string>
+    <string name="value_full">充满</string>
+    <string name="value_discharging">放电中</string>
+    <string name="value_ac">交流电</string>
+    <string name="value_usb">USB</string>
+    <string name="value_wireless">无线</string>
+    <string name="value_not_connected">未连接</string>
+    <string name="value_portrait">竖屏</string>
+    <string name="value_landscape">横屏</string>
+    <string name="value_normal">正常</string>
+    <string name="value_silent">静音</string>
+    <string name="value_vibrate">震动</string>
+    <string name="value_auto">自动</string>
+    <string name="value_manual">手动</string>
+    <string name="value_on">开启</string>
+    <string name="value_off">关闭</string>
+    <string name="value_24_hour">24小时制</string>
+    <string name="value_12_hour">12小时制</string>
+    <string name="value_system_default">系统默认</string>
+    <string name="value_rooted">已Root</string>
+    <string name="value_not_rooted">未Root</string>
+    <string name="value_signed">已签名</string>
+    <string name="value_not_signed">未签名</string>
+    <string name="value_enabled">已启用</string>
+    <string name="value_disabled">已禁用</string>
+    <string name="value_secure">安全</string>
+    <string name="value_insecure">不安全</string>
+
+    <!-- Device Info Usage Descriptions -->
+    <string name="info_android_id">设备ID</string>
+    <string name="info_cpu_cores">CPU核心数</string>
+    <string name="info_cpu_arch">CPU架构</string>
+    <string name="info_sdk_version">SDK版本</string>
+    <string name="info_security_patch">安全补丁级别</string>
+    <string name="info_timezone">时区</string>
+    <string name="info_ip_address">IP地址</string>
+    <string name="info_wifi_ssid">WiFi名称</string>
+    <string name="info_wifi_bssid">WiFi BSSID</string>
+    <string name="info_wifi_signal">WiFi信号强度</string>
+    <string name="info_wifi_frequency">WiFi频率</string>
+    <string name="info_network_operator_code">运营商国家代码</string>
+    <string name="info_internal_storage_total">内部存储总量</string>
+    <string name="info_internal_storage_available">内部存储可用</string>
+    <string name="info_external_storage_total">外部存储总量</string>
+    <string name="info_installed_apps_count">已安装应用数</string>
+    <string name="info_system_user_agent">系统UA</string>
+    <string name="info_accelerometer">加速度计</string>
+    <string name="info_gyroscope">陀螺仪</string>
+    <string name="info_magnetic_sensor">磁力传感器</string>
+    <string name="info_light_sensor">光线传感器</string>
+    <string name="info_proximity_sensor">距离传感器</string>
+    <string name="info_step_counter">计步器</string>
+    <string name="info_all_sensors_list">所有传感器列表</string>
+    <string name="info_selinux_status">SELinux状态</string>
+    <string name="info_adb_debugging">ADB调试</string>
+
+    <!-- Usage Descriptions (Chinese) -->
+    <string name="usage_device_brand">设备制造商标识。广告商用于设备分类和市场分析；流氓应用可能利用特定型号漏洞</string>
+    <string name="usage_device_model">精确设备型号。用于设备价值评估、消费能力画像；部分旧型号存在已知漏洞</string>
+    <string name="usage_device_codename">内部设备代号。用于精确设备识别；攻击者可能搜索特定设备漏洞</string>
+    <string name="usage_product_name">商业产品名称。用于市场细分和用户群体分析</string>
+    <string name="usage_hardware_platform">底层硬件标识。用于性能优化和驱动兼容性分析</string>
+    <string name="usage_android_id">核心隐私数据！用于跨应用用户追踪、广告归因和账号关联。仅在恢复出厂设置后才会改变</string>
+    <string name="usage_cpu_cores">计算能力评估。用于确定设备性能等级、游戏兼容性；推断用户消费水平</string>
+    <string name="usage_cpu_arch">处理器架构。用于选择正确的恶意代码版本；确定安全特性支持；流氓应用可能针对特定架构</string>
+    <string name="usage_total_memory">设备内存容量。用于性能分级、应用推荐；推断设备价格区间和用户消费能力</string>
+    <string name="usage_available_memory">当前可用内存。用于确定设备负载状态；推断用户习惯（是否多任务）</string>
+    <string name="usage_battery_level">电池状态。用于推断使用场景（充电可能意味着在家/办公室）；广告商用于推送时机</string>
+    <string name="usage_charging_method">充电类型。推断用户位置：USB可能在电脑旁，交流电可能在家或办公室</string>
+    <string name="usage_android_version">系统版本。用于兼容性检查、功能限制；旧版本可能存在已知安全漏洞；流氓应用可能利用旧版本漏洞</string>
+    <string name="usage_sdk_version">API级别。精确确定可用特性和安全性；低SDK意味着缺少新的安全机制</string>
+    <string name="usage_security_patch">重要安全指标！确定设备是否已修复已知漏洞。流氓应用可能利用未修复漏洞</string>
+    <string name="usage_baseband_version">通信模块版本。特定版本可能存在基带漏洞，可被远程利用</string>
+    <string name="usage_kernel_version">Linux内核版本。用于确定内核漏洞可用性；旧内核可能存在提权漏洞；流氓应用可能利用内核漏洞获取更高权限</string>
+    <string name="usage_build_fingerprint">完整系统构建标识。用于精确系统来源识别、判断是否官方ROM；追踪系统篡改历史</string>
+    <string name="usage_bootloader_version">引导程序版本。确定设备是否可解锁、是否已Root</string>
+    <string name="usage_system_uptime">设备运行时长。推断用户习惯：短时间可能刚开机，长时间可能很少重启</string>
+    <string name="usage_system_language">用户语言偏好。用于内容推荐、区域服务；推断可能的国籍或居住地</string>
+    <string name="usage_system_region">国家/地区代码。用于区域限制、内容审核；推断用户所在国家</string>
+    <string name="usage_timezone">重要位置推断依据！与其他信息结合可推断用户大致位置</string>
+    <string name="usage_ip_address">网络位置标识！可通过IP数据库定位到城市级别；用于区域限制和风控</string>
+    <string name="usage_wifi_ssid">重要隐私数据！可推断用户位置类型（家/办公室/商场/酒店）；用于位置指纹</string>
+    <string name="usage_wifi_bssid">路由器MAC地址。用于精确定位（配合WiFi位置数据库）；流氓应用可追踪用户移动</string>
+    <string name="usage_wifi_signal">信号强度。用于室内定位、与路由器的距离估算；推断用户在建筑中的位置</string>
+    <string name="usage_wifi_frequency">WiFi频率（2.4G/5G）。用于确定网络环境质量；推断路由器类型和使用场景</string>
+    <string name="usage_network_type">网络连接方式。用于内容适配、流量控制；推断使用场景（WiFi可能在家/办公室）</string>
+    <string name="usage_network_operator">移动网络运营商。用于运营商合作；推断用户所在国家/地区</string>
+    <string name="usage_network_operator_code">运营商所在国家。推断用户所在国家/地区</string>
+    <string name="usage_bluetooth_status">蓝牙开启状态。用于附近设备发现；推断可能使用可穿戴设备</string>
+    <string name="usage_internal_storage_total">设备存储容量。用于确定设备档次；推断用户消费能力（大存储=高端设备）</string>
+    <string name="usage_internal_storage_available">可用存储空间。推断用户习惯：满存储可能大量拍照/下载；空存储可能新设备</string>
+    <string name="usage_external_storage_total">SD卡容量。确定是否存在可扩展存储；推断用户存储需求</string>
+    <string name="usage_screen_resolution">显示分辨率。用于UI适配、图片资源选择；推断设备档次</string>
+    <string name="usage_screen_size">物理屏幕尺寸。用于确定设备类型（手机/平板）；推断使用场景</string>
+    <string name="usage_screen_density">像素密度。用于资源选择、性能优化；高密度通常意味着高端设备</string>
+    <string name="usage_refresh_rate">屏幕刷新率。高刷新率=高端设备；用于动画流畅度判断</string>
+    <string name="usage_current_orientation">当前屏幕方向。用于确定用户活动（横屏可能在看视频/玩游戏）</string>
+    <string name="usage_font_scale">用户字体偏好。大于1.0可能表示视力不佳或老年用户；用于UI适配</string>
+    <string name="usage_animation_scale">动画速度设置。0表示动画禁用，可能是开发者或注重性能的用户</string>
+    <string name="usage_screen_timeout">自动锁屏时间。推断用户习惯：长时间=频繁使用手机；短时间=省电模式</string>
+    <string name="usage_ringer_mode">声音模式。推断当前场景：静音可能在会议/睡觉；震动可能在公共场所</string>
+    <string name="usage_brightness_mode">亮度调节方式。自动亮度可能表示注重便利性的用户；手动可能表示精确控制偏好</string>
+    <string name="usage_dark_mode">深色模式状态。启用可能表示夜间使用或偏好深色主题</string>
+    <string name="usage_installed_apps_count">应用安装数量。推断用户类型：多应用=重度用户；少应用=轻度用户或新设备</string>
+    <string name="usage_default_browser">浏览器偏好。用于识别用户群体特征；某些浏览器有特定用户画像</string>
+    <string name="usage_default_launcher">桌面启动器。第三方启动器表示定制偏好；推断技术能力</string>
+    <string name="usage_system_user_agent">浏览器标识字符串。包含设备型号、系统版本、浏览器版本；服务器用于识别设备</string>
+    <string name="usage_system_runtime">设备运行时长。短时间=刚开机/重启；长时间=稳定运行</string>
+    <string name="usage_time_format">时间显示偏好。24小时制多用于欧洲/亚洲；12小时制多用于美国</string>
+    <string name="usage_current_time">设备当前时间。用于确定用户活跃时段；配合时区可推断大致位置</string>
+    <string name="usage_date_format">日期显示格式。不同地区有不同偏好；帮助确定用户所在地区</string>
+    <string name="usage_sensor_count">设备传感器总数。传感器越多意味着数据收集能力越强；部分传感器可用于用户行为追踪</string>
+    <string name="usage_accelerometer">检测设备运动。用于计步、手势识别、用户行为分析；常用于游戏和健身应用</string>
+    <string name="usage_gyroscope">检测设备旋转。用于AR/VR应用、精确运动追踪；可推断用户活动类型</string>
+    <string name="usage_magnetic_sensor">检测磁场。用于电子罗盘、定位辅助；可推断用户方向和位置</string>
+    <string name="usage_light_sensor">检测环境光强度。用于自动亮度调节；可推断用户环境（室内/室外）</string>
+    <string name="usage_proximity_sensor">检测物体距离。用于通话时熄屏；可推断用户习惯和场景</string>
+    <string name="usage_step_counter">计步器。用于健康追踪；可推断用户运动量和生活方式</string>
+    <string name="usage_all_sensors_list">设备支持的所有传感器。用于应用功能适配；流氓应用可利用传感器数据进行用户行为分析和追踪</string>
+    <string name="usage_root_status">Root降低系统安全性，可能允许恶意应用获取更高权限；部分银行应用可能拒绝运行</string>
+    <string name="usage_debug_mode">调试模式可能允许调试工具获取应用数据；生产环境应禁用</string>
+    <string name="usage_selinux_status">SELinux是安全增强Linux。Enforcing模式提供最强安全保护；Permissive模式降低安全性</string>
+    <string name="usage_adb_debugging">ADB调试允许电脑直接访问设备；可能被恶意利用获取设备控制权</string>
+    <string name="usage_app_signature">应用已通过数字签名验证，完整性有保证</string>
+    <string name="usage_system_integrity">系统文件完整性良好，未被篡改</string>
 </resources>

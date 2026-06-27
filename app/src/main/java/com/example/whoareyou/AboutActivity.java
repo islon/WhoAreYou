@@ -64,47 +64,27 @@ public class AboutActivity extends AppCompatActivity {
 
     private void addAppIntro(LinearLayout container) {
         addSection(container, getString(R.string.about_intro),
-            "This app helps users understand what device information mobile applications can access WITHOUT any permissions.\n\n" +
-            "By transparently displaying this information, we aim to raise users' privacy awareness and help them understand how their data is collected and used.");
+            getString(R.string.about_intro_content));
     }
 
     private void addFeatures(LinearLayout container) {
         addSection(container, getString(R.string.about_features),
-            "• **Information Transparency**: Displays 55+ device info items including hardware, system, network, sensors, and security status\n\n" +
-            "• **Permission Display**: Shows 24 permission items with detailed descriptions of purposes and risks after authorization\n\n" +
-            "• **Risk Identification**: Three risk levels (Low/Medium/High) to help quickly identify sensitive information\n\n" +
-            "• **Usage Explanation**: Detailed explanation of potential uses and risks for each info item\n\n" +
-            "• **Local Processing**: All data is processed locally only, no information is uploaded\n\n" +
-            "• **Zero Permissions**: No sensitive permissions requested, protecting user privacy");
+            getString(R.string.about_features_content));
     }
 
     private void addPrivacyInfo(LinearLayout container) {
         addSection(container, getString(R.string.about_privacy),
-            "• **Zero Data Upload**: This app does not send data to any server\n\n" +
-            "• **Local Analysis**: All information collection and display are done locally on the device\n\n" +
-            "• **No Permission Requests**: Only uses normal permissions allowed by the system (network status, WiFi status)\n\n" +
-            "• **Open Source**: App code is fully open source, security can be verified independently");
+            getString(R.string.about_privacy_content));
     }
 
     private void addTechInfo(LinearLayout container) {
         addSection(container, getString(R.string.about_tech),
-            "**Why can apps access this information?**\n\n" +
-            "Android provides various system APIs that can be accessed without special permissions. These APIs were originally designed to help apps better adapt to devices and provide personalized services.\n\n" +
-            "**Information Usage Examples:**\n\n" +
-            "• Advertisers: Use device model + Android ID for targeted advertising\n\n" +
-            "• Rogue apps: Infer user location and behavior patterns through WiFi information, steal privacy data\n\n" +
-            "• Security research: Detect device security status and system vulnerabilities");
+            getString(R.string.about_tech_content));
     }
 
     private void addProtectionTips(LinearLayout container) {
         addSection(container, getString(R.string.about_suggestions),
-            "**Protection Tips:**\n\n" +
-            "• Regularly check permissions of all apps on your phone\n\n" +
-            "• Be cautious when granting sensitive permissions\n\n" +
-            "• Use privacy protection tools\n\n" +
-            "• Review app permissions before installation\n\n" +
-            "• Disable unnecessary permissions for installed apps\n\n" +
-            "• Keep your device system up to date");
+            getString(R.string.about_suggestions_content));
     }
 
     private void addSection(LinearLayout container, String title, String content) {

@@ -61,9 +61,9 @@ Each permission includes:
 
 ### 中文版 (Chinese)
 
-| 首页/无需权限 | 需要权限 | 关于应用 |
+| 首页/无需权限 | 权限页面1 | 权限页面2 |
 |:------------:|:--------:|:--------:|
-| ![首页](https://github.com/islon/WhoAreYou/raw/main/screenshots/main.png) | ![需要权限](https://github.com/islon/WhoAreYou/raw/main/screenshots/permission.png) | ![关于应用](https://github.com/islon/WhoAreYou/raw/main/screenshots/about.png) |
+| ![首页](https://github.com/islon/WhoAreYou/raw/main/screenshots/main.png) | ![权限页面1](https://github.com/islon/WhoAreYou/raw/main/screenshots/permission1.png) | ![权限页面2](https://github.com/islon/WhoAreYou/raw/main/screenshots/permission2.png) |
 
 ### English Version
 
