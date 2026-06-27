@@ -59,18 +59,18 @@ Each permission includes:
 
 ## 📸 Screenshots
 
-| Main Interface | Permission View | About Page |
-|:--------------:|:---------------:|:----------:|
-| ![Main Interface](screenshots/main.png) | ![Permission View](screenshots/permission.png) | ![About Page](screenshots/about.png) |
+| 首页/无需权限 | 需要权限 | 关于应用 |
+|:------------:|:--------:|:--------:|
+| ![首页/无需权限](screenshots/main.png) | ![需要权限](screenshots/permission.png) | ![关于应用](screenshots/about.png) |
 
-### Main Interface
-Displays 55+ items of device information that can be obtained without any permissions, categorized by type with risk level indicators.
+### 首页/无需权限
+展示55+项无需任何权限即可获取的设备信息，按类别分类并显示风险等级。
 
-### Permission View
-Shows 24 permission types with detailed descriptions and risk analysis, helping users understand what data each permission can access and the potential privacy risks.
+### 需要权限
+展示24项权限类型及其详细描述和风险分析，帮助用户了解每项权限能访问的数据及潜在隐私风险。
 
-### About Page
-Provides educational information about privacy protection, technical details, and usage tips.
+### 关于应用
+提供隐私保护教育信息、技术说明和使用建议。
 
 ## 🚀 Installation
 
