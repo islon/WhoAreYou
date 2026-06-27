@@ -1,0 +1,67 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Who Are You</string>
+
+    <!-- Main Interface -->
+    <string name="main_title">Who Are You</string>
+    <string name="main_subtitle">Privacy Information Transparency</string>
+    <string name="btn_export">Export Report</string>
+    <string name="btn_about">About App</string>
+
+    <!-- Tab Labels -->
+    <string name="tab_free">🔓 No Permission</string>
+    <string name="tab_permission">🔐 Need Permission</string>
+
+    <!-- Statistics -->
+    <string name="stat_info_items">Info Items</string>
+    <string name="stat_sensitive_items">Sensitive Items</string>
+    <string name="stat_categories">Categories</string>
+    <string name="stat_permissions">Permissions</string>
+
+    <!-- Tips -->
+    <string name="tip_free_info">The following information can be obtained without any permissions</string>
+    <string name="tip_permission_warning">Authorized permissions mean apps can access this data at any time. Please regularly check app permissions and revoke unnecessary authorizations.</string>
+    <string name="tip_privacy_notice">This app only displays information that can be technically obtained, and does not upload or transmit any data. All information collection is done locally.</string>
+
+    <!-- Risk Levels -->
+    <string name="risk_high">High Risk</string>
+    <string name="risk_medium">Medium Risk</string>
+    <string name="risk_low">Low Risk</string>
+
+    <!-- Permission Status -->
+    <string name="status_granted">Granted</string>
+    <string name="status_denied">Denied</string>
+    <string name="status_unavailable">Vendor Specific</string>
+
+    <!-- Export Function -->
+    <string name="export_title">📤 Export Report</string>
+    <string name="export_message">The exported report will contain:\n\n📱 No Permission Data (55 items)\n  - Device hardware info (brand, model, CPU, memory, etc.)\n  - System info (Android version, SDK version, etc.)\n  - Network info (IP address, WiFi info, etc.)\n  - Sensor info, security status, etc.\n\n🔐 Need Permission Data (24 items)\n  - Location, contacts, SMS permissions, etc.\n  - Permission status and risk descriptions\n\nReport will be saved to:\nInternal Storage/Documents/WhoAreYou/\n\nConfirm export?</string>
+    <string name="export_confirm">Confirm Export</string>
+    <string name="export_cancel">Cancel</string>
+    <string name="export_success">✅ Report successfully exported to:</string>
+    <string name="export_failed">❌ Export failed:</string>
+
+    <!-- Category Names -->
+    <string name="category_device">Device Hardware</string>
+    <string name="category_system">System Info</string>
+    <string name="category_network">Network Info</string>
+    <string name="category_storage">Storage Info</string>
+    <string name="category_display">Display Info</string>
+    <string name="category_app">App Environment</string>
+    <string name="category_sensor">Sensors</string>
+    <string name="category_security">Security Status</string>
+
+    <!-- About App -->
+    <string name="about_title">About App</string>
+    <string name="about_features">✨ Features</string>
+    <string name="about_privacy">🔒 Privacy Protection</string>
+    <string name="about_tech">🛠️ Technical Details</string>
+    <string name="about_suggestions">💡 Protection Tips</string>
+
+    <!-- Permission Warning -->
+    <string name="permission_warning_title">⚠️ %d Permissions Granted</string>
+
+    <!-- Others -->
+    <string name="loading">Loading...</string>
+    <string name="error">Error</string>
+</resources>

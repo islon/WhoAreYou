@@ -1,0 +1,46 @@
+<resources>
+    <!-- 主题色 -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- 现代配色方案 -->
+    <color name="primary">#6366F1</color>
+    <color name="primary_dark">#4F46E5</color>
+    <color name="secondary">#10B981</color>
+    <color name="accent">#F59E0B</color>
+    <color name="danger">#EF4444</color>
+    
+    <!-- 背景色 -->
+    <color name="background">#F8F9FA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    
+    <!-- 文字色 -->
+    <color name="text_primary">#1F2937</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_hint">#9CA3AF</color>
+    
+    <!-- 信息级别颜色 -->
+    <color name="info_blue">#3B82F6</color>
+    <color name="warning_orange">#F59E0B</color>
+    <color name="danger_red">#EF4444</color>
+    <color name="success_green">#10B981</color>
+    
+    <!-- 分类颜色 -->
+    <color name="category_device">#6366F1</color>
+    <color name="category_system">#8B5CF6</color>
+    <color name="category_network">#EC4899</color>
+    <color name="category_storage">#10B981</color>
+    <color name="category_display">#3B82F6</color>
+    <color name="category_app">#F59E0B</color>
+    <color name="category_sensor">#14B8A6</color>
+    
+    <!-- 分隔线和边框 -->
+    <color name="divider">#E5E7EB</color>
+    <color name="border">#D1D5DB</color>
+</resources>
